@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { LocaleProvider } from "../context/locale-context";
+import { ThemeProvider } from "../context/theme-context";
+
+const themeInitScript = `(function(){try{var t=localStorage.getItem("portfolio-theme");document.documentElement.classList.toggle("dark",t!=="light");}catch(e){document.documentElement.classList.add("dark");}})();`;
 
 function NotFoundComponent() {
   return (
@@ -77,11 +81,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Summit & Stone — Climber, Coach, Author" },
-      { name: "description", content: "The official portfolio of a professional rock climber, coach, author, and lifelong student of the mountain." },
-      { name: "author", content: "Summit & Stone" },
-      { property: "og:title", content: "Summit & Stone — Climber, Coach, Author" },
-      { property: "og:description", content: "Experience, craft, and hard-won knowledge from a life devoted to climbing." },
+      { title: "Mahrad Moslem — Rock Climbing Coach" },
+      { name: "description", content: "Professional rock climbing coach, mountaineer, and author. Founder of Altius Boulder Station and First Ascent Rock Climbing Club." },
+      { name: "author", content: "Mahrad Moslem" },
+      { property: "og:title", content: "Mahrad Moslem — Rock Climbing Coach" },
+      { property: "og:description", content: "Over two decades of coaching, climbing, and writing from Gilan, Iran." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -92,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
@@ -104,9 +108,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl" className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         {children}
@@ -121,8 +126,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <ThemeProvider>
+        <LocaleProvider>
+          <Outlet />
+        </LocaleProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
