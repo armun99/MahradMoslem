@@ -70,6 +70,8 @@ function HomePage() {
             width={1920}
             height={1280}
             alt=""
+            fetchPriority="high"
+            decoding="async"
             className="hero-drift h-full w-full object-cover"
             style={{ objectPosition: heroObjectPosition }}
           />
@@ -82,7 +84,7 @@ function HomePage() {
           )}
         >
           <div dir={isRtl ? "rtl" : "ltr"} className={cn("w-full", isRtl ? "text-right" : "text-left")}>
-            <p className="eyebrow mb-5 text-primary">{t.hero.tagline}</p>
+            {t.hero.tagline ? <p className="eyebrow mb-5 text-primary">{t.hero.tagline}</p> : null}
             <h1
               className={cn(
                 "font-display text-[clamp(2rem,6vw,4.25rem)] font-extrabold leading-[1.12] text-hero-foreground drop-shadow-sm",
@@ -93,7 +95,9 @@ function HomePage() {
               <br />
               <span className="text-primary">{t.hero.headline[1]}</span>
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-hero-foreground/90 sm:text-lg">{t.hero.intro}</p>
+            {t.hero.intro ? (
+              <p className="mt-6 text-base leading-relaxed text-hero-foreground/90 sm:text-lg">{t.hero.intro}</p>
+            ) : null}
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="ember" size="lg">
                 <Link to="/about">
@@ -106,17 +110,19 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <div
-          className={cn(
-            "absolute bottom-8 flex items-center gap-3 text-xs text-hero-foreground/70",
-            isRtl ? "right-5 lg:right-10" : "left-5 lg:left-10",
-          )}
-        >
-          <span className="h-10 w-px overflow-hidden bg-hero-foreground/25">
-            <span className="scroll-mark block h-4 w-px bg-primary" />
-          </span>
-          {t.hero.scroll}
-        </div>
+        {t.hero.scroll ? (
+          <div
+            className={cn(
+              "absolute bottom-8 flex items-center gap-3 text-xs text-hero-foreground/70",
+              isRtl ? "right-5 lg:right-10" : "left-5 lg:left-10",
+            )}
+          >
+            <span className="h-10 w-px overflow-hidden bg-hero-foreground/25">
+              <span className="scroll-mark block h-4 w-px bg-primary" />
+            </span>
+            {t.hero.scroll}
+          </div>
+        ) : null}
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">

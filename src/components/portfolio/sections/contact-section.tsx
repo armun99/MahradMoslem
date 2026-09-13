@@ -69,6 +69,8 @@ export function ContactSection() {
           alt=""
           width={1080}
           height={1920}
+          decoding="async"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-[32%_82%]"
         />
       </div>

@@ -92,6 +92,7 @@ function WallCard({
           src={routeWallCover(wall)}
           alt={name}
           loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
         />
         <span className="absolute end-3 top-3 inline-flex size-9 items-center justify-center rounded-md bg-background/80 text-foreground opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">

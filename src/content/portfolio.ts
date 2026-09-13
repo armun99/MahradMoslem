@@ -140,7 +140,7 @@ export const content: Record<Locale, PortfolioContent> = {
       { path: "/books", label: "کتاب‌ها" },
       { path: "/routes-line-map", label: "کروکی مسیرها" },
       { path: "/gallery", label: "گالری" },
-      { path: "/contact", label: "تماس با ما" },
+      { path: "/contact", label: "راه‌های ارتباطی" },
       { path: "/training-courses", label: "دوره‌های تمرینی" },
     ],
     navMoreLabel: "بیشتر",
@@ -153,12 +153,12 @@ export const content: Record<Locale, PortfolioContent> = {
         { path: "/books", title: "کتاب‌ها", description: "کتاب‌ها و مقالات در سنگنوردی و کوهنوردی." },
         { path: "/routes-line-map", title: "کروکی مسیرها", description: "مسیرها و دیوارهایی که مهراد مسلم باز کرده و نقشه خطوط آن‌ها را ترسیم کرده است." },
         { path: "/gallery", title: "گالری", description: "عکس‌های دیوار، کوه، سفر و مربیگری." },
-        { path: "/contact", title: "تماس با ما", description: "راه‌های ارتباط با مهراد مسلم." },
+        { path: "/contact", title: "راه‌های ارتباطی", description: "راه‌های ارتباط با مهراد مسلم." },
         { path: "/training-courses", title: "دوره‌های تمرینی", description: "دوره‌های آموزشی سنگنوردی و کوهنوردی." },
       ],
     },
     cta: {
-      workWithMe: "تماس با ما",
+      workWithMe: "راه‌های ارتباطی",
       explore: "مسیر من",
       readStory: "ادامه داستان",
       trainWithMe: "شروع تمرین",
@@ -167,11 +167,10 @@ export const content: Record<Locale, PortfolioContent> = {
       viewBook: "مشاهده کتاب",
     },
     hero: {
-      tagline: "مربی سنگنوردی · کوهنوردی · نویسنده",
+      tagline: "",
       headline: ["آموزش حرفه‌ای.", "صعود مطمئن."],
-      intro:
-        "بیش از دو دهه تجربه در دیوار، کوه و سالن. از مبتدی تا سطح حرفه‌ای، با برنامه‌ریزی دقیق و دانش فنی عمیق.",
-      scroll: "اسکرول کنید",
+      intro: "",
+      scroll: "",
     },
     about: {
       eyebrow: "داستان",
@@ -320,7 +319,7 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     contact: {
       eyebrow: "",
-      title: "راه‌های ارتباط",
+      title: "راه‌های ارتباطی",
       intro: "",
       channels: {
         whatsapp: "واتساپ",
@@ -369,11 +368,10 @@ export const content: Record<Locale, PortfolioContent> = {
       viewBook: "View Book",
     },
     hero: {
-      tagline: "Rock Climbing Coach · Mountaineer · Author",
+      tagline: "",
       headline: ["Professional Training.", "Confident Ascents."],
-      intro:
-        "Over two decades on the wall, in the mountains, and in the gym. From beginner to elite, with precise programming and deep technical knowledge.",
-      scroll: "Scroll to explore",
+      intro: "",
+      scroll: "",
     },
     about: {
       eyebrow: "The story",
