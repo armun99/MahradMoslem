@@ -1,61 +1,157 @@
-import { ArrowRight, Instagram, Mail, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Instagram, Mail } from "lucide-react";
 import { contactInfo } from "@/content/portfolio";
 import { usePortfolio } from "@/context/locale-context";
+import { cn } from "@/lib/utils";
+
+function TelegramIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.695.056-1.219-.46-1.89-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.788.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+    </svg>
+  );
+}
+
+const channels = [
+  {
+    key: "email" as const,
+    href: `mailto:${contactInfo.email}`,
+    handle: contactInfo.email,
+    Icon: Mail,
+    accent: "bg-foreground text-background",
+    external: false,
+  },
+  {
+    key: "whatsapp" as const,
+    href: contactInfo.whatsapp,
+    handle: contactInfo.whatsappDisplay,
+    Icon: WhatsAppIcon,
+    accent: "bg-[#25D366] text-white",
+    external: true,
+  },
+  {
+    key: "instagram" as const,
+    href: contactInfo.instagram,
+    handle: contactInfo.instagramHandle,
+    Icon: Instagram,
+    accent: "bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-white",
+    external: true,
+  },
+  {
+    key: "telegram" as const,
+    href: contactInfo.telegram,
+    handle: contactInfo.telegramHandle,
+    Icon: TelegramIcon,
+    accent: "bg-[#229ED9] text-white",
+    external: true,
+  },
+];
 
 export function ContactSection() {
-  const { t, arrowClass } = usePortfolio();
+  const { t, isRtl } = usePortfolio();
+  const Arrow = isRtl ? ChevronLeft : ChevronRight;
 
   return (
-    <section className="border-t border-border bg-background py-16 lg:py-24">
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-5 lg:grid-cols-[.85fr_1.15fr] lg:px-10">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[.24em] text-primary">{t.contact.eyebrow}</p>
-          <h2 className="mt-4 font-display text-5xl font-bold uppercase leading-[.88] text-foreground sm:text-7xl">
-            {t.contact.title}
-          </h2>
-          <p className="mt-7 max-w-lg leading-7 text-muted-foreground">{t.contact.intro}</p>
-          <div className="mt-10 space-y-3 text-sm text-muted-foreground">
-            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 transition-colors hover:text-primary">
-              <Mail className="size-4" /> {contactInfo.email}
-            </a>
-            <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 transition-colors hover:text-primary">
-              <Phone className="size-4" /> {contactInfo.phone}
-            </a>
-            <a href={contactInfo.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition-colors hover:text-primary">
-              <Instagram className="size-4" /> {contactInfo.instagramHandle}
-            </a>
-          </div>
+    <section
+      className="flex h-[calc(100dvh-4rem)] flex-col overflow-hidden lg:h-[calc(100dvh-4.75rem)] lg:flex-row"
+      dir="ltr"
+    >
+      <div className="relative h-2/5 min-h-[220px] w-full overflow-hidden lg:h-full lg:w-1/2">
+        <img
+          src="/contactme-flip.jpg"
+          alt=""
+          width={1080}
+          height={1920}
+          className="absolute inset-0 h-full w-full object-cover object-[32%_82%]"
+        />
+      </div>
+
+      <div
+        className="flex h-3/5 items-center overflow-y-auto px-6 py-10 sm:px-12 lg:h-full lg:w-1/2 lg:px-16 lg:py-20"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, #909FA4 0%, #A9B7B9 28%, #C5D2D5 55%, #DCEEE8 78%, #EAF4EE 100%)",
+        }}
+        dir={isRtl ? "rtl" : "ltr"}
+      >
+        <div className="mx-auto flex w-full max-w-md flex-col gap-7 lg:mx-0">
+          <header className={cn(isRtl ? "text-right" : "text-left")}>
+            {t.contact.eyebrow ? (
+              <p className={cn("mb-2 text-sm font-medium text-primary", isRtl ? "tracking-normal" : "eyebrow")}>
+                {t.contact.eyebrow}
+              </p>
+            ) : null}
+            <h1
+              className={cn(
+                "font-display font-bold text-foreground",
+                isRtl ? "text-[1.75rem] leading-snug sm:text-4xl" : "text-3xl uppercase tracking-tight sm:text-4xl",
+              )}
+            >
+              {t.contact.title}
+            </h1>
+            {t.contact.intro ? (
+              <p
+                className={cn(
+                  "mt-3 leading-relaxed text-muted-foreground",
+                  isRtl ? "text-[0.95rem] sm:text-base" : "text-base",
+                )}
+              >
+                {t.contact.intro}
+              </p>
+            ) : null}
+          </header>
+
+          <ul className="flex flex-col gap-2.5">
+            {channels
+              .filter((channel) => Boolean(channel.handle))
+              .map(({ key, href, handle, Icon, accent, external }) => (
+              <li key={key}>
+                <a
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  aria-label={`${t.contact.channels[key]} — ${handle}`}
+                  className="group flex items-center gap-3.5 rounded-2xl border border-border/50 bg-background/55 px-3.5 py-3.5 backdrop-blur-sm transition-all duration-200 hover:border-primary/30 hover:bg-background/80 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 sm:gap-4 sm:px-4 sm:py-4"
+                >
+                  <span
+                    className={cn(
+                      "inline-flex size-11 shrink-0 items-center justify-center rounded-full shadow-sm",
+                      accent,
+                    )}
+                  >
+                    <Icon className="size-5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className={cn(
+                        "block text-foreground",
+                        isRtl ? "text-[0.95rem] font-bold" : "text-sm font-semibold",
+                      )}
+                    >
+                      {t.contact.channels[key]}
+                    </span>
+                    <span
+                      className="mt-0.5 block truncate text-sm text-muted-foreground"
+                      dir="ltr"
+                      style={{ textAlign: isRtl ? "right" : "left" }}
+                    >
+                      {handle}
+                    </span>
+                  </span>
+                  <Arrow
+                    className="size-4 shrink-0 text-muted-foreground/50 transition-all duration-200 group-hover:text-primary rtl:group-hover:-translate-x-0.5 ltr:group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <form className="grid gap-5 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
-          <label className="text-xs uppercase tracking-widest text-foreground">
-            {t.contact.form.name}
-            <input className="mt-2 h-12 min-h-12 w-full border-b border-border bg-transparent px-0 text-base text-foreground outline-none transition-colors focus:border-primary" required />
-          </label>
-          <label className="text-xs uppercase tracking-widest text-foreground">
-            {t.contact.form.email}
-            <input type="email" className="mt-2 h-12 w-full border-b border-border bg-transparent px-0 text-base text-foreground outline-none focus:border-primary" required />
-          </label>
-          <label className="text-xs uppercase tracking-widest text-foreground">
-            {t.contact.form.phone}
-            <input type="tel" className="mt-2 h-12 w-full border-b border-border bg-transparent px-0 text-base text-foreground outline-none focus:border-primary" />
-          </label>
-          <label className="text-xs uppercase tracking-widest text-foreground">
-            {t.contact.form.experience}
-            <select className="mt-2 h-12 w-full border-b border-border bg-transparent px-0 text-base text-foreground outline-none focus:border-primary">
-              {t.contact.form.experienceOptions.map((opt) => (
-                <option key={opt}>{opt}</option>
-              ))}
-            </select>
-          </label>
-          <label className="text-xs uppercase tracking-widest text-foreground sm:col-span-2">
-            {t.contact.form.message}
-            <textarea rows={4} className="mt-3 w-full resize-none border-b border-border bg-transparent py-3 text-base text-foreground outline-none focus:border-primary" required />
-          </label>
-          <Button variant="ember" size="lg" className="mt-3 sm:col-span-2 sm:justify-self-start">
-            {t.cta.getInTouch} <ArrowRight className={arrowClass} />
-          </Button>
-        </form>
       </div>
     </section>
   );

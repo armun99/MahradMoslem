@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowDown,
-  ArrowRight,
   BookOpen,
   GraduationCap,
   Image,
@@ -11,9 +10,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteShell } from "@/components/portfolio/site-shell";
-import { QuoteSection } from "@/components/portfolio/sections/quote-section";
 import { content } from "@/content/portfolio";
 import { usePortfolio } from "@/context/locale-context";
+import { useThemeContext } from "@/context/theme-context";
 import { cn } from "@/lib/utils";
 
 const sectionIcons: Record<string, typeof User> = {
@@ -23,6 +22,15 @@ const sectionIcons: Record<string, typeof User> = {
   "/gallery": Image,
   "/contact": Mail,
   "/training-courses": GraduationCap,
+};
+
+const sectionBackgrounds: Record<string, string> = {
+  "/about": "/bio1.jpg",
+  "/books": `/books/${encodeURIComponent("کتاب سنگ نگاره.jpg")}`,
+  "/routes-line-map": `/routes/${encodeURIComponent("دیواره مهستان.jpg")}`,
+  "/gallery": `/gallery/${encodeURIComponent("photo_1_2026-09-05_10-59-53.jpg")}`,
+  "/contact": "/lasport.jpg",
+  "/training-courses": "/20230924_182642.jpg",
 };
 
 export const Route = createFileRoute("/")({
@@ -40,13 +48,18 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { t, isRtl, arrowClass } = usePortfolio();
+  const { t, isRtl } = usePortfolio();
+  const { isDark } = useThemeContext();
 
-  const heroImage = isRtl ? "/lasport-flip.jpg" : "/lasport.jpg";
-  const heroObjectPosition = isRtl ? "28% center" : "72% center";
-  const heroGradient = isRtl
-    ? "linear-gradient(270deg,color-mix(in oklab,var(--background)_98%,transparent)_0%,color-mix(in oklab,var(--background)_88%,transparent)_32%,color-mix(in oklab,var(--background)_45%,transparent)_55%,transparent_72%)"
-    : "linear-gradient(90deg,color-mix(in oklab,var(--background)_98%,transparent)_0%,color-mix(in oklab,var(--background)_88%,transparent)_32%,color-mix(in oklab,var(--background)_45%,transparent)_55%,transparent_72%)";
+  const heroImage = isDark ? "/dark-hero.jpg" : isRtl ? "/lasport-flip.jpg" : "/lasport.jpg";
+  const heroObjectPosition = isDark ? "center 35%" : isRtl ? "28% center" : "72% center";
+  const heroGradient = isDark
+    ? isRtl
+      ? "linear-gradient(270deg,color-mix(in oklab,var(--background)_92%,transparent)_0%,color-mix(in oklab,var(--background)_70%,transparent)_28%,color-mix(in oklab,var(--background)_35%,transparent)_50%,transparent_70%)"
+      : "linear-gradient(90deg,color-mix(in oklab,var(--background)_92%,transparent)_0%,color-mix(in oklab,var(--background)_70%,transparent)_28%,color-mix(in oklab,var(--background)_35%,transparent)_50%,transparent_70%)"
+    : isRtl
+      ? "linear-gradient(270deg,color-mix(in oklab,var(--background)_98%,transparent)_0%,color-mix(in oklab,var(--background)_88%,transparent)_32%,color-mix(in oklab,var(--background)_45%,transparent)_55%,transparent_72%)"
+      : "linear-gradient(90deg,color-mix(in oklab,var(--background)_98%,transparent)_0%,color-mix(in oklab,var(--background)_88%,transparent)_32%,color-mix(in oklab,var(--background)_45%,transparent)_55%,transparent_72%)";
 
   return (
     <SiteShell home>
@@ -81,7 +94,7 @@ function HomePage() {
               <span className="text-primary">{t.hero.headline[1]}</span>
             </h1>
             <p className="mt-6 text-base leading-relaxed text-hero-foreground/90 sm:text-lg">{t.hero.intro}</p>
-            <div className={cn("mt-8 flex flex-wrap gap-3", isRtl && "justify-end")}>
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="ember" size="lg">
                 <Link to="/about">
                   {t.cta.explore} <ArrowDown />
@@ -111,31 +124,37 @@ function HomePage() {
         <h2 className={cn("font-display text-3xl font-bold sm:text-4xl", !isRtl && "uppercase")}>{t.home.sectionsTitle}</h2>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {t.home.sections.map((section) => {
-            const Icon = sectionIcons[section.path] ?? Mountain;
+            const Icon = sectionIcons[section.path] ?? User;
+            const bg = sectionBackgrounds[section.path] ?? "/lasport.jpg";
             return (
               <Link
                 key={section.path}
                 to={section.path}
-                className="glass-card glass-card-hover group flex min-h-[11rem] cursor-pointer flex-col justify-between rounded-xl p-6 sm:p-7"
+                className="group relative flex min-h-[17rem] cursor-pointer flex-col justify-end overflow-hidden rounded-xl border border-border/40 sm:min-h-[18.5rem]"
               >
-                <div>
-                  <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-200 group-hover:bg-primary group-hover:text-primary-foreground">
+                <img
+                  src={bg}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/15 transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/60"
+                  aria-hidden
+                />
+                <div className="relative z-10 flex flex-col justify-end p-6 sm:p-7">
+                  <div className="mb-4 inline-flex size-11 items-center justify-center rounded-lg bg-white/15 text-white backdrop-blur-sm transition-colors duration-200 group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="size-5" aria-hidden />
                   </div>
-                  <h3 className={cn("font-display text-xl font-semibold", !isRtl && "uppercase")}>{section.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{section.description}</p>
+                  <h3 className={cn("font-display text-xl font-semibold text-white", !isRtl && "uppercase")}>
+                    {section.title}
+                  </h3>
                 </div>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
-                  {t.cta.learnMore}
-                  <ArrowRight className={cn("size-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5", arrowClass)} />
-                </span>
               </Link>
             );
           })}
         </div>
       </section>
-
-      <QuoteSection />
     </SiteShell>
   );
 }

@@ -14,6 +14,7 @@ type SiteShellProps = {
 
 export function SiteShell({ children, home = false }: SiteShellProps) {
   const { t, locale, setLocale, isRtl } = usePortfolio();
+  const { isDark } = useThemeContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -63,9 +64,10 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
   }, [pathname]);
 
   const showHeader = headerVisible || menuOpen;
+  const isHome = home || pathname === "/";
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-background text-foreground rock-texture">
+    <div className="min-h-dvh overflow-x-hidden bg-transparent text-foreground">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none"
@@ -75,53 +77,47 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-md transition-transform duration-300 ease-out",
+          "fixed inset-x-0 top-0 z-40 border-b border-black/5 transition-transform duration-300 ease-out dark:border-white/10",
           showHeader ? "translate-y-0" : "-translate-y-full",
         )}
       >
-        <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:h-[4.75rem] lg:gap-4 lg:px-8">
-          {/* Logo + nav — physical left */}
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <Link
-              to="/"
-              className="shrink-0 rounded-xl bg-foreground px-3.5 py-2 text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:py-2.5 lg:px-5 lg:py-3"
-              aria-label={t.brand}
+        <div
+          dir="ltr"
+          className="mx-auto grid h-16 max-w-7xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-4 sm:gap-3 sm:px-5 lg:h-[4.75rem] lg:gap-4 lg:px-8"
+        >
+          {/* Logo — physical left */}
+          <Link
+            to="/"
+            className="shrink-0 rounded-xl bg-foreground px-3.5 py-2 text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:py-2.5 lg:px-5 lg:py-3"
+            aria-label={t.brand}
+          >
+            <span
+              className={cn(
+                "block whitespace-nowrap font-display text-sm font-extrabold sm:text-base lg:text-lg",
+                !isRtl && "uppercase tracking-wide",
+              )}
+              dir={isRtl ? "rtl" : "ltr"}
             >
-              <span
-                className={cn(
-                  "block whitespace-nowrap font-display text-sm font-extrabold sm:text-base lg:text-lg",
-                  !isRtl && "uppercase tracking-wide",
-                )}
-              >
-                {t.brand}
-              </span>
-            </Link>
+              {t.brand}
+            </span>
+          </Link>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className="size-10 shrink-0 text-foreground lg:hidden"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-expanded={menuOpen}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-            >
-              {menuOpen ? <X /> : <Menu />}
-            </Button>
+          {/* Desktop nav — center/fill */}
+          <nav
+            className="hidden min-w-0 items-center gap-0.5 overflow-x-auto lg:flex xl:gap-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Primary navigation"
+            dir={isRtl ? "rtl" : "ltr"}
+          >
+            {navLinks.map((item) => (
+              <NavLink key={item.path} to={item.path} active={pathname === item.path} label={item.label} />
+            ))}
+          </nav>
+          <div className="min-w-0 lg:hidden" aria-hidden />
 
-            <nav
-              className="hidden min-w-0 items-center gap-0.5 overflow-x-auto lg:flex xl:gap-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              aria-label="Primary navigation"
-            >
-              {navLinks.map((item) => (
-                <NavLink key={item.path} to={item.path} active={pathname === item.path} label={item.label} />
-              ))}
-            </nav>
-          </div>
-
-          {/* Utilities — physical right */}
+          {/* Utilities + menu — physical right */}
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <ThemeToggle compact />
-            <LanguageToggle locale={locale} setLocale={setLocale} compact className="hidden sm:flex" />
+            <LanguageToggle locale={locale} setLocale={setLocale} compact />
             <a
               href={contactInfo.youtube}
               target="_blank"
@@ -140,6 +136,21 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
             >
               <Instagram className="size-[1.05rem] sm:size-[1.15rem]" />
             </a>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                "size-10 shrink-0 lg:hidden [&_svg]:!size-6",
+                isHome && !isDark
+                  ? "!text-black hover:!bg-black/10 hover:!text-black [&_svg]:!text-black"
+                  : "text-foreground hover:bg-accent hover:text-accent-foreground",
+              )}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? <X strokeWidth={2.75} /> : <Menu strokeWidth={2.75} />}
+            </Button>
           </div>
         </div>
       </header>
@@ -152,14 +163,23 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
           />
-          <nav className="absolute inset-y-0 end-0 flex w-[min(100%,20rem)] flex-col border-s border-border bg-background shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <nav
+            dir="ltr"
+            className="absolute inset-y-0 right-0 flex w-[min(100%,20rem)] flex-col border-l border-border bg-background shadow-2xl"
+          >
+            <div className="flex items-center justify-between border-b border-border px-5 py-4" dir={isRtl ? "rtl" : "ltr"}>
               <span className={cn("font-display text-lg font-bold", !isRtl && "uppercase")}>{t.brand}</span>
-              <Button variant="ghost" size="icon" className="size-11" onClick={() => setMenuOpen(false)} aria-label="Close">
-                <X />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-11 text-foreground hover:bg-accent hover:text-accent-foreground [&_svg]:!size-6"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close"
+              >
+                <X strokeWidth={2.75} />
               </Button>
             </div>
-            <div className="flex-1 overflow-y-auto px-3 py-4">
+            <div className="flex-1 overflow-y-auto px-3 py-4" dir={isRtl ? "rtl" : "ltr"}>
               {t.nav.map((item) => (
                 <Link
                   key={item.path}

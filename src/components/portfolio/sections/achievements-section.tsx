@@ -1,39 +1,86 @@
-import { SectionTitle } from "@/components/portfolio/section-title";
+import { useEffect, useRef, useState } from "react";
 import { usePortfolio } from "@/context/locale-context";
+import { cn } from "@/lib/utils";
 
 export function AchievementsSection() {
-  const { t } = usePortfolio();
+  const { t, isRtl } = usePortfolio();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.12 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
-      <SectionTitle eyebrow={t.achievements.eyebrow}>
-        {t.achievements.title[0]}
-        <br />
-        {t.achievements.title[1]}
-      </SectionTitle>
-      <div className="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {t.achievements.stats.map(([number, label]) => (
-          <div key={label} className="glass-card rounded-xl p-6 lg:p-8">
-            <div className="font-display text-4xl font-bold text-primary sm:text-6xl">{number}</div>
-            <div className="mt-3 text-sm leading-relaxed text-muted-foreground">{label}</div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-20 grid gap-10 lg:grid-cols-[.6fr_1.4fr]">
-        <p className="font-display text-3xl uppercase text-stone">{t.achievements.timelineLabel}</p>
-        <div className="flex flex-col gap-4">
-          {t.achievements.timeline.map(([year, title, desc]) => (
-            <article
+    <section ref={sectionRef} className="mx-auto max-w-4xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <h1
+        className={cn(
+          "mb-12 text-2xl font-bold text-foreground sm:text-3xl",
+          !isRtl && "uppercase tracking-wide",
+        )}
+        dir={isRtl ? "rtl" : "ltr"}
+      >
+        {isRtl ? "مسیر" : "Experience"}
+      </h1>
+
+      <div dir="ltr" className="flex flex-col">
+        {t.achievements.timeline.map(([year, title], index) => {
+          const contentOnLeft = index % 2 === 0;
+          return (
+            <div
               key={`${year}-${title}`}
-              className="group rounded-xl border border-border/60 bg-card/40 p-6 transition-colors duration-200 hover:border-primary/30 hover:bg-card/70"
+              className={cn(
+                "flex justify-between transition-all duration-500 ease-out",
+                visible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0",
+              )}
+              style={{ transitionDelay: visible ? `${index * 0.18}s` : "0s" }}
             >
-              <span className="font-display text-lg font-semibold text-primary">{year}</span>
-              <h3 className="mt-2 font-display text-xl font-semibold">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-            </article>
-          ))}
-        </div>
+              <div className="flex w-[42%] flex-col gap-2 pb-10">
+                {contentOnLeft && <PathCard year={year} title={title} align="end" />}
+              </div>
+
+              <div className="flex w-[16%] flex-col items-center">
+                <div className="size-4 shrink-0 rounded-full bg-white ring-2 ring-primary dark:bg-zinc-900" />
+                {index < t.achievements.timeline.length - 1 && (
+                  <div className="w-0.5 flex-1 bg-foreground/80 dark:bg-foreground/50" />
+                )}
+              </div>
+
+              <div className="flex w-[42%] flex-col gap-2 pb-10">
+                {!contentOnLeft && <PathCard year={year} title={title} align="start" />}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
+  );
+}
+
+function PathCard({
+  year,
+  title,
+  align,
+}: {
+  year: string;
+  title: string;
+  align: "start" | "end";
+}) {
+  return (
+    <div className={cn("flex flex-col gap-2", align === "end" ? "items-end text-end" : "items-start text-start")}>
+      <h2 className="w-fit rounded-md bg-white px-3 py-2 text-sm font-bold text-foreground shadow-sm dark:bg-zinc-900 dark:ring-1 dark:ring-white/10 sm:text-base">
+        {title}
+      </h2>
+      {year !== "—" && <span className="text-sm font-medium text-primary">{year}</span>}
+    </div>
   );
 }

@@ -68,28 +68,28 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.96 0.012 85);
+  --background: oklch(0.97 0.01 160);
   --foreground: oklch(0.22 0.015 65);
-  --card: oklch(0.99 0.008 85);
+  --card: oklch(0.99 0.006 160);
   --card-foreground: oklch(0.22 0.015 65);
-  --popover: oklch(0.99 0.008 85);
+  --popover: oklch(0.99 0.006 160);
   --popover-foreground: oklch(0.22 0.015 65);
   --primary: oklch(0.58 0.17 45);
   --primary-foreground: oklch(0.99 0.008 85);
-  --secondary: oklch(0.92 0.015 85);
+  --secondary: oklch(0.92 0.012 200);
   --secondary-foreground: oklch(0.28 0.015 65);
-  --muted: oklch(0.93 0.012 85);
+  --muted: oklch(0.93 0.01 200);
   --muted-foreground: oklch(0.48 0.02 65);
-  --accent: oklch(0.9 0.02 75);
+  --accent: oklch(0.9 0.015 190);
   --accent-foreground: oklch(0.22 0.015 65);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.88 0.012 85);
-  --input: oklch(0.88 0.012 85);
+  --border: oklch(0.86 0.012 200);
+  --input: oklch(0.86 0.012 200);
   --ring: oklch(0.58 0.17 45);
   --hero-foreground: oklch(0.97 0.01 80);
   --stone: oklch(0.55 0.02 70);
-  --panel: oklch(0.94 0.01 82);
+  --panel: oklch(0.94 0.01 190);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -148,8 +148,25 @@
     border-color: var(--color-border);
   }
 
+  html {
+    background: linear-gradient(
+      to bottom,
+      #9facae 0%,
+      #b3c3c4 25%,
+      #cfdadf 50%,
+      #e3f3ed 75%,
+      #fcfff5 100%
+    );
+    background-attachment: fixed;
+  }
+
+  html.dark {
+    background: linear-gradient(to bottom, #020617, #1c1917);
+    background-attachment: fixed;
+  }
+
   body {
-    background-color: var(--color-background);
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -248,6 +265,30 @@
 @utility rock-texture {
   background-image: radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--foreground) 4%, transparent) 0 1px, transparent 1px), radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--foreground) 3%, transparent) 0 1px, transparent 1px);
   background-size: 19px 23px, 31px 37px;
+}
+
+@keyframes letter-blink {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@utility letter-blink {
+  animation: letter-blink 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-blink {
+    animation: none;
+  }
 }
 
 @keyframes drift { from { transform: scale(1.04); } to { transform: scale(1.1); } }

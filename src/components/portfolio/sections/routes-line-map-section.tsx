@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Images, Maximize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SectionTitle } from "@/components/portfolio/section-title";
 import { routeMapPublicUrl, routeWallCover, routeWalls, type RouteWall } from "@/content/route-maps";
 import { usePortfolio } from "@/context/locale-context";
 import { cn } from "@/lib/utils";
@@ -36,13 +35,7 @@ export function RoutesLineMapSection() {
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
-      <SectionTitle>
-        {t.routeMaps.title[0]}
-        <br />
-        {t.routeMaps.title[1]}
-      </SectionTitle>
-
-      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {routeWalls.map((wall) => (
           <WallCard key={wall.id} wall={wall} locale={locale} onOpen={() => setActiveWallId(wall.id)} />
         ))}

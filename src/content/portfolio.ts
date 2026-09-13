@@ -1,12 +1,17 @@
 export type Locale = "fa" | "en";
 
 export const contactInfo = {
-  email: "hello@example.com",
-  phone: "+98 000 000 0000",
-  instagram: "https://instagram.com/mahradmoslem",
-  instagramHandle: "@mahradmoslem",
-  youtube: "https://youtube.com/@mahradmoslem",
-  youtubeHandle: "@mahradmoslem",
+  email: "Mahrad.moslem@gmail.com",
+  phone: "+98 912 034 7365",
+  phoneDigits: "989120347365",
+  telegram: "https://t.me/Mahrad13",
+  telegramHandle: "@Mahrad13",
+  whatsapp: "https://wa.me/989120347365",
+  whatsappDisplay: "+98 912 034 7365",
+  instagram: "https://www.instagram.com/mahrad.mslm",
+  instagramHandle: "@mahrad.mslm",
+  youtube: "https://youtube.com/@Mahrad_Mslm",
+  youtubeHandle: "@Mahrad_Mslm",
 };
 
 type CoachingIcon =
@@ -74,12 +79,9 @@ export type PortfolioContent = {
     enrollCta: string;
     items: { title: string; level: string; description: string }[];
   };
-  quote: { text: [string, string]; attribution?: string };
   gallery: {
     eyebrow: string;
     title: string;
-    categories: string[];
-    items: { category: string; caption: string }[];
   };
   routeMaps: {
     pageTitle: string;
@@ -116,13 +118,11 @@ export type PortfolioContent = {
     eyebrow: string;
     title: string;
     intro: string;
-    form: {
-      name: string;
+    channels: {
+      whatsapp: string;
+      instagram: string;
       email: string;
-      phone: string;
-      experience: string;
-      experienceOptions: string[];
-      message: string;
+      youtube: string;
     };
   };
 };
@@ -138,7 +138,7 @@ export const content: Record<Locale, PortfolioContent> = {
     nav: [
       { path: "/about", label: "بیوگرافی" },
       { path: "/books", label: "کتاب‌ها" },
-      { path: "/routes-line-map", label: "نقشه خطوط مسیر" },
+      { path: "/routes-line-map", label: "کروکی مسیرها" },
       { path: "/gallery", label: "گالری" },
       { path: "/contact", label: "تماس با ما" },
       { path: "/training-courses", label: "دوره‌های تمرینی" },
@@ -146,19 +146,19 @@ export const content: Record<Locale, PortfolioContent> = {
     navMoreLabel: "بیشتر",
     home: {
       homeLabel: "خانه",
-      sectionsEyebrow: "کاوش",
-      sectionsTitle: "بخش‌های سایت",
+      sectionsEyebrow: "",
+      sectionsTitle: "",
       sections: [
         { path: "/about", title: "بیوگرافی", description: "بیوگرافی، مسیر حرفه‌ای و تجربه در ایران و سوئد." },
         { path: "/books", title: "کتاب‌ها", description: "کتاب‌ها و مقالات در سنگنوردی و کوهنوردی." },
-        { path: "/routes-line-map", title: "نقشه خطوط مسیر", description: "مسیرها و دیوارهایی که مهراد مسلم باز کرده و نقشه خطوط آن‌ها را ترسیم کرده است." },
+        { path: "/routes-line-map", title: "کروکی مسیرها", description: "مسیرها و دیوارهایی که مهراد مسلم باز کرده و نقشه خطوط آن‌ها را ترسیم کرده است." },
         { path: "/gallery", title: "گالری", description: "عکس‌های دیوار، کوه، سفر و مربیگری." },
-        { path: "/contact", title: "تماس با ما", description: "فرم تماس، ایمیل، تلفن و اینستاگرام." },
+        { path: "/contact", title: "تماس با ما", description: "راه‌های ارتباط با مهراد مسلم." },
         { path: "/training-courses", title: "دوره‌های تمرینی", description: "دوره‌های آموزشی سنگنوردی و کوهنوردی." },
       ],
     },
     cta: {
-      workWithMe: "همکاری با من",
+      workWithMe: "تماس با ما",
       explore: "مسیر من",
       readStory: "ادامه داستان",
       trainWithMe: "شروع تمرین",
@@ -175,23 +175,25 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     about: {
       eyebrow: "داستان",
-      title: ["فراتر از یک", "سنگنورد."],
+      title: ["مهراد مسلم", "ایران، تهران ۱۳۷۱"],
       paragraphs: [
-        "مهراد مسلم، متولد ۱۳۷۱ تهران. فعالیت حرفه‌ای سنگنوردی از ۱۳۸۴ آغاز شد. پس از کسب مدرک‌های مقدماتی، به سوئد مهاجرت کرد، در آنجا دانش فنی و اداری خود را در سنگنوردی و کوهنوردی گسترش داد و مدرک فنی‌حرفه‌ای نجاری نیز دریافت کرد.",
-        "با بازگشت به ایران، در آموزش سنگنوردان، تأسیس باشگاه‌ها، نویسندگی، مسیرگذاری و مربیگری تیم‌های استانی فعال است. رئیس کمیته سنگنوردی ورزشی استان گیلان و رئیس کمیته استعدادیابی مرکز (رشت) بوده است.",
-        "عضو تیم نگارش طرح درس مربیگری رشته سنگنوردی ورزشی فدراسیون کوهنوردی ایران. بیش از ۵۰ مسیر را در ایران باز کرده یا ری‌بولت کرده و در مسیرگذاری دیوارهای بزرگ و سنگنوردی ورزشی گیلان و ایران نقش دارد.",
+        "دانش‌آموختهٔ رشتهٔ چوب (نجاری) از کشور سوئد و فارغ‌التحصیل رشتهٔ مدیریت گمرک در ایران است. او سنگنوردی را از سال ۱۳۸۴ به صورت حرفه‌ای آغاز کرد و پس از چند سال کوشش و کسب مدارک مقدماتی سنگنوردی به کشور سوئد مهاجرت کرد.",
+        "وی در سال‌های مهاجرت به کشور سوئد به دانش فنی و توانمندی‌های تکنیکی و اجرایی خود در سنگنوردی و کوهنوردی افزود و در بازگشت به ایران در زمینهٔ آموزش به علاقه‌مندان سنگنوردی حضور فعال دارد: تأسیس بزرگ‌ترین باشگاه سنگنوردی بلدرینگ شمال کشور، آلتیوس بولدر استیشن؛ باشگاه سنگنوردی صعود اول؛ انتشار چند کتاب با موضوعات سنگنوردی، کوهنوردی و طبیعت؛ عضو تیم تألیف طرح درس مربی راهنمای رشتهٔ صعودهای ورزشی فدراسیون کوهنوردی ایران؛ و تحقیق و انتشار مقالات در زمینه‌های سنگنوردی، دره‌نوردی و کوهنوردی.",
+        "در طراحی‌های فنی و گشایش مسیرهای دیواره‌نوردی و اسپرت بر دیواره‌های ایران و گیلان، تهیه و تنظیم کروکی دیواره‌های گیلان، و صعودهای چهارفصل دیواره‌ای و کوهستانی به قلل و دیواره‌های گوناگون حضور فعال دارد.",
+        "در کارنامهٔ وی ریاست کمیتهٔ صعودهای ورزشی استان گیلان، ریاست کمیتهٔ استعدادیابی مرکز (رشت)، کسب مدارک مربیگری سنگنوردی، کوهنوردی، علم طراحی تمرین، بدنسازی، بدنسازی فانکشنال، تی‌آر‌ایکس، سایکل اسپینینگ، و داور و طراح یخنوردی و درای‌تولینگ و داور و طراح دوی کوهستان دیده می‌شود.",
+        "برخی از کوشش‌های ورزشی وی عبارتند از: صعود به ۱۰ قلهٔ بیش از چهار هزار متر در منطقهٔ علم‌کوه و تخت سلیمان (فنی‌ترین منطقهٔ کوهستانی ایران)؛ صعودهای موفق زمستانی به قله‌های دماوند، سبلان و علم‌کوه (بلندترین قله‌های ایران)؛ گشایش مسیر گیلانی‌ها بر دیوارهٔ بیستون کرمانشاه؛ صعود زمستانی دیوارهٔ بیستون از مسیر عقاب‌ها و پیمایش کامل زمستانهٔ خط‌الرس قلهٔ بیستون (بلندترین دیوارهٔ ایران)؛ صعود دو مسیر هاری‌روست و کرمانشایی‌ها در ۱۶ ساعت بر دیوارهٔ علم‌کوه (فنی‌ترین دیوارهٔ ایران)؛ صعود ۱۰ مسیر بر دیوارهٔ بیستون در ۳ روز؛ گشایش و ترمیم بیش از ۱۰۰ مسیر سنگنوردی در ایران و گیلان؛ صعود تیمی زمستانه به ۷ قله در منطقهٔ علم‌کوه در ۲ روز؛ مربی تست‌های انتخابی کوهنوردی و دیواره‌نوردی استان گیلان؛ و مربی تیم سنگنوردی استان گیلان.",
       ],
     },
     achievements: {
       eyebrow: "به عدد",
       title: ["یک مسیر", "یک دستاورد."],
       stats: [
-        ["۵۰+", "مسیر باز شده / ری‌بولت"],
+        ["۱۰۰+", "مسیر باز شده / ترمیم"],
         ["۱۰", "قله بالای ۴۰۰۰ متر"],
         ["۷", "قله زمستانی در دو روز"],
         ["چندین", "کتاب و مقاله"],
       ],
-      timelineLabel: "نقاط عطف",
+      timelineLabel: "",
       timeline: [
         ["۱۳۸۴", "شروع سنگنوردی حرفه‌ای", "آغاز مسیر حرفه‌ای در دیوار و کوه."],
         ["سوئد", "تحصیل و تخصص", "گسترش دانش فنی سنگنوردی و کوهنوردی؛ مدرک نجاری از سوئد."],
@@ -245,28 +247,16 @@ export const content: Record<Locale, PortfolioContent> = {
         { icon: "book", title: "گواهینامه‌ها", description: "مربیگری سنگنوردی، کوهنوردی، طراحی تمرین، بدنسازی، TRX و داوری مسیر." },
       ],
     },
-    quote: {
-      text: ["سود و زیان یکی دان،", "چون در قمار مایی"],
-    },
     gallery: {
-      eyebrow: "یادداشت‌های میدانی",
-      title: "زندگی روی سنگ",
-      categories: ["همه", "سنگنوردی", "کوه", "سفر", "مربیگری", "پشت صحنه"],
-      items: [
-        { category: "سنگنوردی", caption: "گرانیت طلایی" },
-        { category: "پشت صحنه", caption: "بین تلاش‌ها" },
-        { category: "سفر", caption: "خط آلپاین" },
-        { category: "کوه", caption: "نور آخر" },
-        { category: "کوه", caption: "بالای دره" },
-        { category: "مربیگری", caption: "روی لبه تیز" },
-      ],
+      eyebrow:  "",
+      title: "",
     },
     routeMaps: {
-      pageTitle: "نقشه خطوط مسیر",
-      title: ["مسیرهای باز شده", "توسط مهراد مسلم."],
+      pageTitle: "کروکی مسیرها",
+      title: ["", ""],
       viewWall: "مشاهده دیوار",
       images: "تصویر",
-      storyHeading: "داستان",
+      storyHeading: "",
       imagesHeading: "تصاویر",
       previous: "تصویر قبلی",
       next: "تصویر بعدی",
@@ -329,17 +319,14 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     contact: {
-      eyebrow: "همکاری با من",
-      title: "آماده‌اید سنگنوردی‌تان را جلو ببرید؟",
-      intro:
-        "چه تازه شروع کرده باشید چه برای صعود بزرگ بعدی آماده شوید، در تماس باشیم.",
-      form: {
-        name: "نام",
+      eyebrow: "",
+      title: "راه‌های ارتباط",
+      intro: "",
+      channels: {
+        whatsapp: "واتساپ",
+        instagram: "اینستاگرام",
         email: "ایمیل",
-        phone: "تلفن",
-        experience: "سطح تجربه",
-        experienceOptions: ["مبتدی", "متوسط", "پیشرفته", "حرفه‌ای"],
-        message: "پیام",
+        youtube: "یوتیوب",
       },
     },
   },
@@ -368,12 +355,12 @@ export const content: Record<Locale, PortfolioContent> = {
         { path: "/books", title: "Books", description: "Books and articles on climbing and mountaineering." },
         { path: "/routes-line-map", title: "Route Line Maps", description: "Walls and routes opened by Mahrad Moslem, with his line maps." },
         { path: "/gallery", title: "Gallery", description: "Photos from the wall, mountains, expeditions, and coaching." },
-        { path: "/contact", title: "Contact Us", description: "Form, email, phone, and Instagram." },
+        { path: "/contact", title: "Contact Us", description: "Ways to get in touch with Mahrad Moslem." },
         { path: "/training-courses", title: "Training Courses", description: "Structured rock climbing and mountaineering courses." },
       ],
     },
     cta: {
-      workWithMe: "Work With Me",
+      workWithMe: "Contact Us",
       explore: "My Journey",
       readStory: "Read My Story",
       trainWithMe: "Train With Me",
@@ -459,21 +446,9 @@ export const content: Record<Locale, PortfolioContent> = {
         { icon: "book", title: "Certifications", description: "Rock climbing, mountaineering, exercise design, bodybuilding, TRX, and route-setting referee credentials." },
       ],
     },
-    quote: {
-      text: ["سود و زیان یکی دان،", "چون در قمار مایی"],
-    },
     gallery: {
       eyebrow: "Field notes",
       title: "Life on the Rock",
-      categories: ["All", "Climbing", "Mountains", "Expeditions", "Coaching", "Behind the Scenes"],
-      items: [
-        { category: "Climbing", caption: "Golden granite" },
-        { category: "Behind the Scenes", caption: "Between attempts" },
-        { category: "Expeditions", caption: "Alpine line" },
-        { category: "Mountains", caption: "Last light" },
-        { category: "Mountains", caption: "Above the valley" },
-        { category: "Coaching", caption: "On the sharp end" },
-      ],
     },
     routeMaps: {
       pageTitle: "Route Line Maps",
@@ -543,17 +518,14 @@ export const content: Record<Locale, PortfolioContent> = {
       ],
     },
     contact: {
-      eyebrow: "Work with me",
-      title: "Ready to Take Your Climbing Further?",
-      intro:
-        "Whether you're starting out or preparing for your next major ascent, let's talk.",
-      form: {
-        name: "Name",
+      eyebrow: "",
+      title: "Get in Touch",
+      intro: "",
+      channels: {
+        telegram: "Telegram",
+        whatsapp: "WhatsApp",
+        instagram: "Instagram",
         email: "Email",
-        phone: "Phone",
-        experience: "Experience level",
-        experienceOptions: ["Beginner", "Intermediate", "Advanced", "Elite"],
-        message: "Message",
       },
     },
   },

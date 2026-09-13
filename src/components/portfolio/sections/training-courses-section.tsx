@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SectionTitle } from "@/components/portfolio/section-title";
 import { usePortfolio } from "@/context/locale-context";
 
 export function TrainingCoursesSection() {
@@ -9,14 +8,7 @@ export function TrainingCoursesSection() {
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
-      <SectionTitle eyebrow={t.trainingCourses.eyebrow}>
-        {t.trainingCourses.title[0]}
-        <br />
-        {t.trainingCourses.title[1]}
-      </SectionTitle>
-      <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground">{t.trainingCourses.intro}</p>
-
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         {t.trainingCourses.items.map((course) => (
           <article key={course.title} className="glass-card glass-card-hover rounded-xl p-7">
             <GraduationCap className="size-8 text-primary" aria-hidden />

@@ -3,25 +3,12 @@ import { usePortfolio } from "@/context/locale-context";
 import { cn } from "@/lib/utils";
 
 export function BooksSection() {
-  const { t, locale, isRtl } = usePortfolio();
+  const { locale, isRtl } = usePortfolio();
 
   return (
-    <section className="border-t border-border bg-background py-16 lg:py-24">
+    <section className="border-t border-border/40 py-16 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-5 lg:px-10">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">{t.books.eyebrow}</p>
-        <h2
-          className={cn(
-            "font-display text-5xl font-bold leading-[.92] text-foreground sm:text-7xl",
-            !isRtl && "uppercase",
-          )}
-        >
-          {t.books.title[0]}
-          <br />
-          {t.books.title[1]}
-        </h2>
-        <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground">{t.books.intro}</p>
-
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {bookCatalog.map((book) => (
             <article key={book.id} className="group flex flex-col">
               <div className="overflow-hidden rounded-lg bg-card shadow-lg ring-1 ring-border/60 transition-transform duration-300 group-hover:-translate-y-1">

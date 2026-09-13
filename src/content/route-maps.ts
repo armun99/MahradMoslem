@@ -25,16 +25,16 @@ export const routeWalls: RouteWall[] = [
     id: "khalil-dasht",
     name: { fa: "دیواره خلیل‌دشت", en: "Khalil Dasht Wall" },
     images: [
-      { file: "دیواره خلیل دشت.jpg", caption: { fa: "نمای دیوار", en: "Wall overview" } },
       { file: "دیواره ی خلیل دشت.png", caption: { fa: "نقشه خطوط", en: "Line map" } },
+      { file: "دیواره خلیل دشت.jpg", caption: { fa: "نمای دیوار", en: "Wall overview" } },
     ],
   },
   {
     id: "darsar",
     name: { fa: "دیواره دارسر", en: "Darsar Wall" },
     images: [
-      { file: "دیواره دارسر.jpg", caption: { fa: "نمای دیوار", en: "Wall overview" } },
       { file: "دیواره دارسر - ماسوله.jpg", caption: { fa: "ماسوله", en: "Masuleh" } },
+      { file: "دیواره دارسر.jpg", caption: { fa: "نمای دیوار", en: "Wall overview" } },
     ],
   },
   {
