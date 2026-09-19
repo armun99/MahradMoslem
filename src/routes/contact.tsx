@@ -2,12 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/portfolio/site-shell";
 import { PageLayout } from "@/components/portfolio/page-header";
 import { ContactSection } from "@/components/portfolio/sections/contact-section";
-import { content } from "@/content/portfolio";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [{ title: `${content.fa.nav.find((n) => n.path === "/contact")!.label} | ${content.fa.brand}` }],
-  }),
+  head: () =>
+    pageHead({
+      title: `تماس با مربی سنگنوردی رشت | مهراد مسلم`,
+      description:
+        "ارتباط با مهراد مسلم، مربی سنگنوردی رشت و گیلان از طریق ایمیل، واتساپ، تلگرام و اینستاگرام.",
+      path: "/contact",
+      image: "https://mahrad-moslem.vercel.app/contactme-flip.jpg",
+      keywords: "تماس مربی سنگنوردی رشت, آموزش سنگنوردی گیلان",
+    }),
   component: ContactPage,
 });
 

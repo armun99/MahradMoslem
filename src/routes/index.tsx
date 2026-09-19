@@ -13,6 +13,7 @@ import { SiteShell } from "@/components/portfolio/site-shell";
 import { content } from "@/content/portfolio";
 import { usePortfolio } from "@/context/locale-context";
 import { useThemeContext } from "@/context/theme-context";
+import { pageHead } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const sectionIcons: Record<string, typeof User> = {
@@ -34,16 +35,14 @@ const sectionBackgrounds: Record<string, string> = {
 };
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: content.fa.meta.title },
-      { name: "description", content: content.fa.meta.description },
-      { property: "og:title", content: content.fa.meta.title },
-      { property: "og:description", content: content.fa.meta.description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      title: content.fa.meta.title,
+      description: content.fa.meta.description,
+      path: "/",
+      keywords:
+        "سنگنوردی رشت, مربی سنگنوردی رشت, سنگنوردی گیلان, آموزش سنگنوردی رشت, کوهنوردی گیلان, بولدرینگ رشت, مهراد مسلم",
+    }),
   component: HomePage,
 });
 
@@ -151,8 +150,12 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <p className="eyebrow mb-4">{t.home.sectionsEyebrow}</p>
-        <h2 className={cn("font-display text-3xl font-bold sm:text-4xl", !isRtl && "uppercase")}>{t.home.sectionsTitle}</h2>
+        {t.home.sectionsEyebrow ? <p className="eyebrow mb-4">{t.home.sectionsEyebrow}</p> : null}
+        {t.home.sectionsTitle ? (
+          <h2 className={cn("font-display text-3xl font-bold sm:text-4xl", !isRtl && "uppercase")}>
+            {t.home.sectionsTitle}
+          </h2>
+        ) : null}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {t.home.sections.map((section) => {
             const Icon = sectionIcons[section.path] ?? User;
@@ -180,6 +183,9 @@ function HomePage() {
                   <h3 className={cn("font-display text-xl font-semibold text-white", !isRtl && "uppercase")}>
                     {section.title}
                   </h3>
+                  {section.description ? (
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/75">{section.description}</p>
+                  ) : null}
                 </div>
               </Link>
             );

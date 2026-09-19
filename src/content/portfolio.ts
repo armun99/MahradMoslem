@@ -123,9 +123,9 @@ export type PortfolioContent = {
 export const content: Record<Locale, PortfolioContent> = {
   fa: {
     meta: {
-      title: "مهراد مسلم | مربی سنگنوردی و کوهنوردی",
+      title: "مهراد مسلم | مربی سنگنوردی رشت و گیلان",
       description:
-        "مربی حرفه‌ای سنگنوردی، کوهنوردی و نویسنده. بنیان‌گذار آلتیوس بولدر استیشن و باشگاه فرست اسنت.",
+        "مربی سنگنوردی و کوهنوردی در رشت و گیلان. آموزش سنگنوردی، دوره‌های تمرینی، کروکی مسیرها، بنیان‌گذار آلتیوس بولدر استیشن و باشگاه فرست اسنت.",
     },
     brand: "مهراد مسلم",
     nav: [
@@ -139,15 +139,15 @@ export const content: Record<Locale, PortfolioContent> = {
     navMoreLabel: "بیشتر",
     home: {
       homeLabel: "خانه",
-      sectionsEyebrow: "",
-      sectionsTitle: "",
+      sectionsEyebrow: "کاوش",
+      sectionsTitle: "سنگنوردی و کوهنوردی در رشت و گیلان",
       sections: [
-        { path: "/about", title: "بیوگرافی", description: "بیوگرافی، مسیر حرفه‌ای و تجربه در ایران و سوئد." },
+        { path: "/about", title: "بیوگرافی", description: "بیوگرافی مربی سنگنوردی رشت؛ مسیر حرفه‌ای در ایران و سوئد." },
         { path: "/books", title: "کتاب‌ها", description: "کتاب‌ها و مقالات در سنگنوردی و کوهنوردی." },
-        { path: "/routes-line-map", title: "کروکی مسیرها", description: "مسیرها و دیوارهایی که مهراد مسلم باز کرده و نقشه خطوط آن‌ها را ترسیم کرده است." },
-        { path: "/gallery", title: "گالری", description: "عکس‌های دیوار، کوه، سفر و مربیگری." },
-        { path: "/contact", title: "راه‌های ارتباطی", description: "راه‌های ارتباط با مهراد مسلم." },
-        { path: "/training-courses", title: "دوره‌های تمرینی", description: "دوره‌های آموزشی سنگنوردی و کوهنوردی." },
+        { path: "/routes-line-map", title: "کروکی مسیرها", description: "کروکی دیواره‌های گیلان و مسیرهایی که مهراد مسلم باز کرده است." },
+        { path: "/gallery", title: "گالری", description: "عکس‌های دیوار، کوه، سفر و مربیگری در گیلان." },
+        { path: "/contact", title: "راه‌های ارتباطی", description: "تماس با مربی سنگنوردی رشت." },
+        { path: "/training-courses", title: "دوره‌های تمرینی", description: "آموزش و دوره‌های سنگنوردی در رشت و گیلان." },
       ],
     },
     cta: {
@@ -301,9 +301,9 @@ export const content: Record<Locale, PortfolioContent> = {
   },
   en: {
     meta: {
-      title: "Mahrad Moslem | Rock Climbing & Mountaineering Coach",
+      title: "Mahrad Moslem | Rock Climbing Coach in Rasht, Gilan",
       description:
-        "Professional rock climbing coach, mountaineer, and author. Founder of Altius Boulder Station and First Ascent Rock Climbing Club.",
+        "Professional rock climbing and mountaineering coach in Rasht, Gilan. Training courses, route line maps, founder of Altius Boulder Station and First Ascent Club.",
     },
     brand: "Mahrad Moslem",
     nav: [
@@ -318,14 +318,14 @@ export const content: Record<Locale, PortfolioContent> = {
     home: {
       homeLabel: "Home",
       sectionsEyebrow: "Explore",
-      sectionsTitle: "Site sections",
+      sectionsTitle: "Rock climbing & coaching in Rasht, Gilan",
       sections: [
-        { path: "/about", title: "Biography", description: "Biography, career path, and experience in Iran and Sweden." },
+        { path: "/about", title: "Biography", description: "Biography of a Rasht rock climbing coach — career in Iran and Sweden." },
         { path: "/books", title: "Books", description: "Books and articles on climbing and mountaineering." },
-        { path: "/routes-line-map", title: "Route Line Maps", description: "Walls and routes opened by Mahrad Moslem, with his line maps." },
-        { path: "/gallery", title: "Gallery", description: "Photos from the wall, mountains, expeditions, and coaching." },
-        { path: "/contact", title: "Contact Us", description: "Ways to get in touch with Mahrad Moslem." },
-        { path: "/training-courses", title: "Training Courses", description: "Structured rock climbing and mountaineering courses." },
+        { path: "/routes-line-map", title: "Route Line Maps", description: "Gilan wall line maps and routes opened by Mahrad Moslem." },
+        { path: "/gallery", title: "Gallery", description: "Photos from the wall, mountains, and coaching in Gilan." },
+        { path: "/contact", title: "Contact Us", description: "Contact a rock climbing coach in Rasht." },
+        { path: "/training-courses", title: "Training Courses", description: "Rock climbing training courses in Rasht and Gilan." },
       ],
     },
     cta: {

@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { siteJsonLd } from "../lib/seo";
 import { LocaleProvider } from "../context/locale-context";
 import { ThemeProvider } from "../context/theme-context";
 
@@ -81,12 +82,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mahrad Moslem — Rock Climbing Coach" },
-      { name: "description", content: "Professional rock climbing coach, mountaineer, and author. Founder of Altius Boulder Station and First Ascent Rock Climbing Club." },
-      { name: "author", content: "Mahrad Moslem" },
-      { property: "og:title", content: "Mahrad Moslem — Rock Climbing Coach" },
-      { property: "og:description", content: "Over two decades of coaching, climbing, and writing from Gilan, Iran." },
+      { title: "مهراد مسلم | مربی سنگنوردی رشت و گیلان" },
+      {
+        name: "description",
+        content:
+          "مربی سنگنوردی و کوهنوردی در رشت و گیلان. آموزش سنگنوردی، دوره‌های تمرینی، کروکی مسیرها و باشگاه‌های بولدر.",
+      },
+      {
+        name: "keywords",
+        content:
+          "سنگنوردی رشت, مربی سنگنوردی رشت, سنگنوردی گیلان, آموزش سنگنوردی, کوهنوردی رشت, بولدرینگ رشت, مهراد مسلم, آلتیوس بولدر استیشن",
+      },
+      { name: "author", content: "مهراد مسلم | Mahrad Moslem" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "geo.region", content: "IR-16" },
+      { name: "geo.placename", content: "Rasht, Gilan, Iran" },
+      { property: "og:locale", content: "fa_IR" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "مهراد مسلم" },
+      { property: "og:title", content: "مهراد مسلم | مربی سنگنوردی رشت و گیلان" },
+      {
+        property: "og:description",
+        content: "آموزش سنگنوردی و کوهنوردی در رشت و گیلان — بیش از دو دهه تجربه روی دیوار و کوه.",
+      },
+      { property: "og:image", content: "https://mahrad-moslem.vercel.app/lasport.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -98,6 +117,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "canonical", href: "https://mahrad-moslem.vercel.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(siteJsonLd()),
+      },
     ],
   }),
   shellComponent: RootShell,
