@@ -52,7 +52,6 @@ function HomePage() {
   const { isDark } = useThemeContext();
 
   const heroImage = isDark ? "/dark-hero.jpg" : isRtl ? "/lasport-flip.jpg" : "/lasport.jpg";
-  const heroObjectPosition = isDark ? "center 35%" : isRtl ? "28% center" : "72% center";
   const heroGradient = isDark
     ? isRtl
       ? "linear-gradient(270deg,color-mix(in oklab,var(--background)_92%,transparent)_0%,color-mix(in oklab,var(--background)_70%,transparent)_28%,color-mix(in oklab,var(--background)_35%,transparent)_50%,transparent_70%)"
@@ -72,15 +71,41 @@ function HomePage() {
             alt=""
             fetchPriority="high"
             decoding="async"
-            className="hero-drift h-full w-full object-cover"
-            style={{ objectPosition: heroObjectPosition }}
+            className={cn(
+              "hero-drift h-full w-full object-cover",
+              isDark
+                ? // Mobile: climber high; desktop: show the full night scene again
+                  "object-[72%_18%] lg:object-[center_42%]"
+                : isRtl
+                  ? "object-[28%_center]"
+                  : "object-[72%_center]",
+            )}
           />
         </div>
-        <div className="absolute inset-0" style={{ background: heroGradient }} />
+        {/* Desktop side wash */}
+        <div className={cn("absolute inset-0", isDark && "hidden lg:block")} style={{ background: heroGradient }} />
+        {/* Mobile dark: bottom wash so copy sits clear of the climber */}
+        {isDark ? (
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-black via-black/75 to-transparent lg:hidden"
+            aria-hidden
+          />
+        ) : null}
         <div
           className={cn(
-            "absolute inset-y-0 flex w-[min(100%,34rem)] flex-col justify-center px-5 pb-16 pt-28 sm:w-[min(100%,40rem)] lg:px-10",
-            isRtl ? "right-0" : "left-0",
+            "absolute z-10 flex flex-col px-5",
+            isDark
+              ? cn(
+                  // Mobile dark: pin copy to the dark lower band
+                  "inset-x-0 bottom-0 top-auto justify-end pb-12 pt-28",
+                  // Desktop dark: restore side column
+                  "lg:inset-y-0 lg:bottom-auto lg:top-0 lg:w-[min(100%,40rem)] lg:justify-center lg:pb-16 lg:pt-28 lg:px-10",
+                  isRtl ? "lg:right-0 lg:left-auto" : "lg:left-0 lg:right-auto",
+                )
+              : cn(
+                  "inset-y-0 w-[min(100%,34rem)] justify-center pb-16 pt-28 sm:w-[min(100%,40rem)] lg:px-10",
+                  isRtl ? "right-0" : "left-0",
+                ),
           )}
         >
           <div dir={isRtl ? "rtl" : "ltr"} className={cn("w-full", isRtl ? "text-right" : "text-left")}>

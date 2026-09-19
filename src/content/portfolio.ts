@@ -34,7 +34,7 @@ export type PortfolioContent = {
     sectionsTitle: string;
     sections: { path: string; title: string; description: string }[];
   };
-  cta: { workWithMe: string; explore: string; readStory: string; trainWithMe: string; getInTouch: string; learnMore: string; viewBook: string };
+  cta: { workWithMe: string; explore: string; trainWithMe: string; getInTouch: string; learnMore: string; viewBook: string };
   hero: {
     tagline: string;
     headline: [string, string];
@@ -45,13 +45,6 @@ export type PortfolioContent = {
     eyebrow: string;
     title: [string, string];
     paragraphs: string[];
-  };
-  achievements: {
-    eyebrow: string;
-    title: [string, string];
-    stats: [string, string][];
-    timelineLabel: string;
-    timeline: [string, string, string][];
   };
   clubs: {
     eyebrow: string;
@@ -160,7 +153,6 @@ export const content: Record<Locale, PortfolioContent> = {
     cta: {
       workWithMe: "راه‌های ارتباطی",
       explore: "مسیر من",
-      readStory: "ادامه داستان",
       trainWithMe: "شروع تمرین",
       getInTouch: "ارسال پیام",
       learnMore: "بیشتر بدانید",
@@ -168,7 +160,7 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     hero: {
       tagline: "",
-      headline: ["آموزش حرفه‌ای.", "صعود مطمئن."],
+      headline: ["هر مسیر داستانی دارد.", "این داستان من است."],
       intro: "",
       scroll: "",
     },
@@ -181,28 +173,6 @@ export const content: Record<Locale, PortfolioContent> = {
         "در طراحی‌های فنی و گشایش مسیرهای دیواره‌نوردی و اسپرت بر دیواره‌های ایران و گیلان، تهیه و تنظیم کروکی دیواره‌های گیلان، و صعودهای چهارفصل دیواره‌ای و کوهستانی به قلل و دیواره‌های گوناگون حضور فعال دارد.",
         "در کارنامهٔ وی ریاست کمیتهٔ صعودهای ورزشی استان گیلان، ریاست کمیتهٔ استعدادیابی مرکز (رشت)، کسب مدارک مربیگری سنگنوردی، کوهنوردی، علم طراحی تمرین، بدنسازی، بدنسازی فانکشنال، تی‌آر‌ایکس، سایکل اسپینینگ، و داور و طراح یخنوردی و درای‌تولینگ و داور و طراح دوی کوهستان دیده می‌شود.",
         "برخی از کوشش‌های ورزشی وی عبارتند از: صعود به ۱۰ قلهٔ بیش از چهار هزار متر در منطقهٔ علم‌کوه و تخت سلیمان (فنی‌ترین منطقهٔ کوهستانی ایران)؛ صعودهای موفق زمستانی به قله‌های دماوند، سبلان و علم‌کوه (بلندترین قله‌های ایران)؛ گشایش مسیر گیلانی‌ها بر دیوارهٔ بیستون کرمانشاه؛ صعود زمستانی دیوارهٔ بیستون از مسیر عقاب‌ها و پیمایش کامل زمستانهٔ خط‌الرس قلهٔ بیستون (بلندترین دیوارهٔ ایران)؛ صعود دو مسیر هاری‌روست و کرمانشایی‌ها در ۱۶ ساعت بر دیوارهٔ علم‌کوه (فنی‌ترین دیوارهٔ ایران)؛ صعود ۱۰ مسیر بر دیوارهٔ بیستون در ۳ روز؛ گشایش و ترمیم بیش از ۱۰۰ مسیر سنگنوردی در ایران و گیلان؛ صعود تیمی زمستانه به ۷ قله در منطقهٔ علم‌کوه در ۲ روز؛ مربی تست‌های انتخابی کوهنوردی و دیواره‌نوردی استان گیلان؛ و مربی تیم سنگنوردی استان گیلان.",
-      ],
-    },
-    achievements: {
-      eyebrow: "به عدد",
-      title: ["یک مسیر", "یک دستاورد."],
-      stats: [
-        ["۱۰۰+", "مسیر باز شده / ترمیم"],
-        ["۱۰", "قله بالای ۴۰۰۰ متر"],
-        ["۷", "قله زمستانی در دو روز"],
-        ["چندین", "کتاب و مقاله"],
-      ],
-      timelineLabel: "",
-      timeline: [
-        ["۱۳۸۴", "شروع سنگنوردی حرفه‌ای", "آغاز مسیر حرفه‌ای در دیوار و کوه."],
-        ["سوئد", "تحصیل و تخصص", "گسترش دانش فنی سنگنوردی و کوهنوردی؛ مدرک نجاری از سوئد."],
-        ["—", "آلتیوس بولدر استیشن", "بزرگ‌ترین باشگاه بولدر شمال کشور."],
-        ["—", "باشگاه فرست اسنت", "تأسیس باشگاه سنگنوردی فرست اسنت."],
-        ["—", "صعودهای زمستانی", "صعود زمستانی به دماوند، سبلان و علم‌کوه."],
-        ["—", "مسیر گیلانیان، بیستون", "باز کردن مسیر گیلانیان روی دیوار بیستون کرمانشاه."],
-        ["—", "HEADLINE، بیستون", "صعود کامل زمستانی مسیر HEADLINE روی بالاترین دیوار ایران."],
-        ["—", "علم‌کوه، ۱۶ ساعت", "صعود هر دو مسیر هری رست و کرمانشاهی‌ها در ۱۶ ساعت."],
-        ["—", "ریاست کمیته گیلان", "رئیس کمیته سنگنوردی ورزشی استان گیلان."],
       ],
     },
     clubs: {
@@ -361,7 +331,6 @@ export const content: Record<Locale, PortfolioContent> = {
     cta: {
       workWithMe: "Contact Us",
       explore: "My Journey",
-      readStory: "Read My Story",
       trainWithMe: "Train With Me",
       getInTouch: "Get In Touch",
       learnMore: "Learn More",
@@ -369,7 +338,7 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     hero: {
       tagline: "",
-      headline: ["Professional Training.", "Confident Ascents."],
+      headline: ["Every route tells a story.", "This is mine."],
       intro: "",
       scroll: "",
     },
@@ -380,28 +349,6 @@ export const content: Record<Locale, PortfolioContent> = {
         "Mahrad Moslem was born in Tehran in 1992. He began climbing professionally in 2005, earned preliminary qualifications, then moved to Sweden where he expanded his technical and administrative knowledge in rock climbing and mountaineering, and completed an associate degree in carpentry.",
         "After returning to Iran, he trains climbers, founded major clubs, writes books, sets routes, and coaches provincial teams. He served as head of the Gilan Province Sport Climbing Committee and head of the Talent Search Committee in Rasht.",
         "He is a member of the team writing the instructor lesson plan for sport climbing in the Iranian Mountaineering Federation. He has opened or rebolted more than 50 routes in Iran and works on bigwall and sport route-setting across Gilan and the country.",
-      ],
-    },
-    achievements: {
-      eyebrow: "By the numbers",
-      title: ["One Move", "At a Time."],
-      stats: [
-        ["50+", "Routes opened / rebolted"],
-        ["10", "Summits over 4,000 m"],
-        ["7", "Winter summits in 2 days"],
-        ["Several", "Books & articles"],
-      ],
-      timelineLabel: "Selected milestones",
-      timeline: [
-        ["2005", "Professional climbing begins", "The start of a career on rock and in the mountains."],
-        ["Sweden", "Study & specialization", "Expanded climbing and mountaineering expertise; carpentry degree."],
-        ["—", "Altius Boulder Station", "The largest bouldering club in northern Iran."],
-        ["—", "First Ascent Club", "Founded the First Ascent Rock Climbing Club."],
-        ["—", "Winter ascents", "Winter summits of Damavand, Sabalan, and Alam-Kuh."],
-        ["—", "Guilanian Route, Bisotun", "Opened the Guilanian Route on the Bisotun wall, Kermanshah."],
-        ["—", "HEADLINE, Bisotun", "Full winter ascent of HEADLINE on Iran's highest wall."],
-        ["—", "Alam-Kuh, 16 hours", "Both Hari Rost and Kermanshahiha routes in 16 hours."],
-        ["—", "Gilan committee head", "Head of the Gilan Province Sport Climbing Committee."],
       ],
     },
     clubs: {

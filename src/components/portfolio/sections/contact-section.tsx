@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight, Instagram, Mail } from "lucide-react";
 import { contactInfo } from "@/content/portfolio";
 import { usePortfolio } from "@/context/locale-context";
+import { useThemeContext } from "@/context/theme-context";
 import { cn } from "@/lib/utils";
 
 function TelegramIcon({ className }: { className?: string }) {
@@ -56,7 +57,12 @@ const channels = [
 
 export function ContactSection() {
   const { t, isRtl } = usePortfolio();
+  const { isDark } = useThemeContext();
   const Arrow = isRtl ? ChevronLeft : ChevronRight;
+
+  const panelBackground = isDark
+    ? "linear-gradient(to bottom, #020617 0%, #0c1222 45%, #1c1917 100%)"
+    : "linear-gradient(to bottom, #909FA4 0%, #A9B7B9 28%, #C5D2D5 55%, #DCEEE8 78%, #EAF4EE 100%)";
 
   return (
     <section
@@ -77,9 +83,7 @@ export function ContactSection() {
 
       <div
         className="flex h-3/5 items-center overflow-y-auto px-6 py-10 sm:px-12 lg:h-full lg:w-1/2 lg:px-16 lg:py-20"
-        style={{
-          backgroundImage: "linear-gradient(to bottom, #909FA4 0%, #A9B7B9 28%, #C5D2D5 55%, #DCEEE8 78%, #EAF4EE 100%)",
-        }}
+        style={{ backgroundImage: panelBackground }}
         dir={isRtl ? "rtl" : "ltr"}
       >
         <div className="mx-auto flex w-full max-w-md flex-col gap-7 lg:mx-0">
