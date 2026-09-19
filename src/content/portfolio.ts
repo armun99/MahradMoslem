@@ -160,7 +160,7 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     hero: {
       tagline: "",
-      headline: ["هر مسیر داستانی دارد.", "این داستان من است."],
+      headline: ["هر مسیر، یک چالش.", "هر صعود، یک داستان."],
       intro: "",
       scroll: "",
     },
