@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Instagram, Menu, Moon, Sun, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactInfo } from "@/content/portfolio";
@@ -22,6 +22,16 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
 
   const navLinks = t.nav;
 
+  // Reset scroll + unlock body before paint so short pages (e.g. Contact)
+  // never appear blank after leaving a long scrolled page / lightbox.
+  useLayoutEffect(() => {
+    document.body.style.overflow = "";
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    setMenuOpen(false);
+    setHeaderVisible(true);
+    lastScrollY.current = 0;
+  }, [pathname]);
+
   useEffect(() => {
     const scrollThreshold = 64;
 
@@ -42,13 +52,7 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    setMenuOpen(false);
-    setHeaderVisible(true);
-    lastScrollY.current = window.scrollY;
-  }, [pathname, locale]);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -88,6 +92,7 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
           {/* Logo — physical left */}
           <Link
             to="/"
+            resetScroll
             className="shrink-0 rounded-xl bg-foreground px-3.5 py-2 text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-4 sm:py-2.5 lg:px-5 lg:py-3"
             aria-label={t.brand}
           >
@@ -184,6 +189,11 @@ export function SiteShell({ children, home = false }: SiteShellProps) {
                 <Link
                   key={item.path}
                   to={item.path}
+                  resetScroll
+                  onClick={() => {
+                    document.body.style.overflow = "";
+                    setMenuOpen(false);
+                  }}
                   className={cn(
                     "flex min-h-12 items-center rounded-md px-4 text-base font-semibold transition-colors duration-200",
                     pathname === item.path ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted",
@@ -206,6 +216,7 @@ function NavLink({ to, active, label }: { to: string; active: boolean; label: st
   return (
     <Link
       to={to}
+      resetScroll
       className={cn(
         "inline-flex shrink-0 items-center whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-bold text-foreground/80 transition-colors hover:text-foreground xl:px-2.5 xl:text-sm",
         active && "text-foreground",

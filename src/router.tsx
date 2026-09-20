@@ -10,6 +10,9 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Always jump to top on forward navigations so short pages aren't left
+    // scrolled past their content after leaving a long page like Gallery.
+    defaultViewTransition: false,
   });
 
   return router;
