@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { siteJsonLd } from "../lib/seo";
+import { SITE_LOGO, siteJsonLd } from "../lib/seo";
 import { LocaleProvider } from "../context/locale-context";
 import { ThemeProvider } from "../context/theme-context";
 
@@ -105,8 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         property: "og:description",
         content: "آموزش سنگنوردی و کوهنوردی در رشت و گیلان — بیش از دو دهه تجربه روی دیوار و کوه.",
       },
-      { property: "og:image", content: "https://mahrad-moslem.vercel.app/lasport.jpg" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: SITE_LOGO },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:image", content: SITE_LOGO },
     ],
     links: [
       {
@@ -116,7 +117,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "canonical", href: "https://mahrad-moslem.vercel.app/" },
     ],
     scripts: [

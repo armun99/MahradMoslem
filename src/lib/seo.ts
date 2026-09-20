@@ -3,6 +3,11 @@ import { contactInfo } from "@/content/portfolio";
 /** Production site URL — override with VITE_SITE_URL if you add a custom domain */
 export const SITE_URL = (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, "") ?? "https://mahrad-moslem.vercel.app";
 
+/** Square logo for Google / social / schema */
+export const SITE_LOGO = `${SITE_URL}/logo-square.png`;
+/** Full portrait brand mark */
+export const SITE_LOGO_FULL = `${SITE_URL}/logo.jpg`;
+/** Default share preview (climbing photo reads better in large cards than the line-art logo) */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/lasport.jpg`;
 
 type PageMetaInput = {
@@ -53,7 +58,8 @@ export function siteJsonLd() {
         name: "مهراد مسلم",
         alternateName: ["Mahrad Moslem", "Mahrad Mslm"],
         url: SITE_URL,
-        image: DEFAULT_OG_IMAGE,
+        image: SITE_LOGO,
+        logo: SITE_LOGO,
         jobTitle: "مربی سنگنوردی و کوهنوردی",
         description:
           "مربی حرفه‌ای سنگنوردی و کوهنوردی در رشت و گیلان؛ بنیان‌گذار آلتیوس بولدر استیشن و باشگاه فرست اسنت.",
@@ -82,7 +88,8 @@ export function siteJsonLd() {
         name: "مهراد مسلم — مربی سنگنوردی رشت",
         alternateName: "Mahrad Moslem Rock Climbing Coach Rasht",
         url: SITE_URL,
-        image: DEFAULT_OG_IMAGE,
+        image: SITE_LOGO,
+        logo: SITE_LOGO,
         description:
           "آموزش سنگنوردی و کوهنوردی در رشت و استان گیلان. دوره‌های تمرینی، مربیگری و کروکی مسیرهای دیواره.",
         telephone: contactInfo.phone,
@@ -103,12 +110,26 @@ export function siteJsonLd() {
         sameAs: [contactInfo.instagram, contactInfo.youtube],
       },
       {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "مهراد مسلم",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: SITE_LOGO,
+          width: 512,
+          height: 512,
+        },
+        image: SITE_LOGO_FULL,
+        sameAs: [contactInfo.instagram, contactInfo.youtube, contactInfo.telegram],
+      },
+      {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: "مهراد مسلم | مربی سنگنوردی رشت",
         inLanguage: ["fa", "en"],
-        publisher: { "@id": `${SITE_URL}/#person` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
     ],
   };
