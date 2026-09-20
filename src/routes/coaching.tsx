@@ -6,7 +6,7 @@ import { content } from "@/content/portfolio";
 
 export const Route = createFileRoute("/coaching")({
   head: () => ({
-    meta: [{ title: `${content.fa.coaching.title} | ${content.fa.brand}` }],
+    meta: [{ title: `${content.en.coaching.title} | ${content.en.brand}` }],
   }),
   component: CoachingPage,
 });

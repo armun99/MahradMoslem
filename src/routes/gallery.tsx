@@ -7,10 +7,10 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/gallery")({
   head: () =>
     pageHead({
-      title: `گالری سنگنوردی و کوهنوردی | مهراد مسلم`,
-      description: "گالری عکس‌های سنگنوردی، دیواره، کوه و مربیگری مهراد مسلم در گیلان و ایران.",
+      title: `Climbing & Mountaineering Gallery | Mahrad Moslem`,
+      description: "Photo gallery of rock climbing, walls, mountains, and coaching by Mahrad Moslem in Gilan and Iran.",
       path: "/gallery",
-      keywords: "گالری سنگنوردی, عکس سنگنوردی گیلان, مهراد مسلم",
+      keywords: "rock climbing gallery, Gilan climbing photos, Mahrad Moslem",
     }),
   component: GalleryPage,
 });

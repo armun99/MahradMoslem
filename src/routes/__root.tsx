@@ -82,28 +82,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "مهراد مسلم | مربی سنگنوردی رشت و گیلان" },
+      { title: "Mahrad Moslem | Rock Climbing Coach in Rasht, Gilan" },
       {
         name: "description",
         content:
-          "مربی سنگنوردی و کوهنوردی در رشت و گیلان. آموزش سنگنوردی، دوره‌های تمرینی، کروکی مسیرها و باشگاه‌های بولدر.",
+          "Professional rock climbing and mountaineering coach in Rasht, Gilan. Training courses, route line maps, founder of Altius Boulder Station and First Ascent Club.",
       },
       {
         name: "keywords",
         content:
-          "سنگنوردی رشت, مربی سنگنوردی رشت, سنگنوردی گیلان, آموزش سنگنوردی, کوهنوردی رشت, بولدرینگ رشت, مهراد مسلم, آلتیوس بولدر استیشن",
+          "rock climbing Rasht, rock climbing coach Rasht, Gilan climbing, mountaineering Iran, bouldering Rasht, Mahrad Moslem, Altius Boulder Station",
       },
-      { name: "author", content: "مهراد مسلم | Mahrad Moslem" },
+      { name: "author", content: "Mahrad Moslem | مهراد مسلم" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "geo.region", content: "IR-16" },
       { name: "geo.placename", content: "Rasht, Gilan, Iran" },
-      { property: "og:locale", content: "fa_IR" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "fa_IR" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "مهراد مسلم" },
-      { property: "og:title", content: "مهراد مسلم | مربی سنگنوردی رشت و گیلان" },
+      { property: "og:site_name", content: "Mahrad Moslem" },
+      { property: "og:title", content: "Mahrad Moslem | Rock Climbing Coach in Rasht, Gilan" },
       {
         property: "og:description",
-        content: "آموزش سنگنوردی و کوهنوردی در رشت و گیلان — بیش از دو دهه تجربه روی دیوار و کوه.",
+        content:
+          "Rock climbing and mountaineering coaching in Rasht and Gilan — over two decades on walls and mountains.",
       },
       { property: "og:image", content: SITE_LOGO },
       { name: "twitter:card", content: "summary" },
@@ -138,7 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="fa" dir="rtl" className="dark" suppressHydrationWarning>
+    <html lang="en" dir="ltr" className="dark" suppressHydrationWarning>
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />

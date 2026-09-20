@@ -1,7 +1,9 @@
 {
-  "name": "مهراد مسلم",
-  "short_name": "مهراد مسلم",
-  "description": "مربی سنگنوردی و کوهنوردی در رشت و گیلان",
+  "name": "Mahrad Moslem",
+  "short_name": "Mahrad Moslem",
+  "description": "Rock climbing and mountaineering coach in Rasht, Gilan",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#111111",

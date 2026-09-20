@@ -7,12 +7,12 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () =>
     pageHead({
-      title: `بیوگرافی مهراد مسلم | مربی سنگنوردی رشت`,
+      title: `Biography | Mahrad Moslem — Rock Climbing Coach in Rasht`,
       description:
-        "بیوگرافی مهراد مسلم، مربی سنگنوردی و کوهنوردی در رشت و گیلان؛ تجربه ایران و سوئد، باشگاه‌ها، مسیرها و آموزش.",
+        "Biography of Mahrad Moslem, rock climbing and mountaineering coach in Rasht and Gilan — career in Iran and Sweden, clubs, routes, and coaching.",
       path: "/about",
       image: "https://mahrad-moslem.vercel.app/bio1.jpg",
-      keywords: "بیوگرافی مهراد مسلم, مربی سنگنوردی رشت, سنگنوردی گیلان",
+      keywords: "Mahrad Moslem biography, rock climbing coach Rasht, Gilan climbing",
     }),
   component: AboutPage,
 });

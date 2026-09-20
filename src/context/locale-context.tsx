@@ -13,7 +13,7 @@ type LocaleContextValue = {
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const { locale, setLocale, isRtl } = useLocale("fa");
+  const { locale, setLocale, isRtl } = useLocale("en");
   const t = content[locale];
   const arrowClass = isRtl ? "rtl:-scale-x-100" : "";
 

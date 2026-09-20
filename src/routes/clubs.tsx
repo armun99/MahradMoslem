@@ -6,7 +6,7 @@ import { content } from "@/content/portfolio";
 
 export const Route = createFileRoute("/clubs")({
   head: () => ({
-    meta: [{ title: `${content.fa.clubs.title.join(" ")} | ${content.fa.brand}` }],
+    meta: [{ title: `${content.en.clubs.title.join(" ")} | ${content.en.brand}` }],
   }),
   component: ClubsPage,
 });

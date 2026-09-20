@@ -343,12 +343,14 @@ export const content: Record<Locale, PortfolioContent> = {
       scroll: "",
     },
     about: {
-      eyebrow: "The story",
-      title: ["More Than a", "Climber."],
+      eyebrow: "",
+      title: ["Mahrad Moslem", "Tehran, 1992"],
       paragraphs: [
-        "Mahrad Moslem was born in Tehran in 1992. He began climbing professionally in 2005, earned preliminary qualifications, then moved to Sweden where he expanded his technical and administrative knowledge in rock climbing and mountaineering, and completed an associate degree in carpentry.",
-        "After returning to Iran, he trains climbers, founded major clubs, writes books, sets routes, and coaches provincial teams. He served as head of the Gilan Province Sport Climbing Committee and head of the Talent Search Committee in Rasht.",
-        "He is a member of the team writing the instructor lesson plan for sport climbing in the Iranian Mountaineering Federation. He has opened or rebolted more than 50 routes in Iran and works on bigwall and sport route-setting across Gilan and the country.",
+        "He has an associate degree in carpentry from Sweden and graduated in customs administration from Iran. He began climbing professionally in 2005 and after several years of effort and obtaining preliminary climbing qualifications, he immigrated to Sweden. During residence in Sweden, he added to his technical and administrative knowledge in rock climbing and mountaineering, and on returning to Iran has served climbing enthusiasts in areas such as training climbers: Establishment of the largest bouldering club in the north of the country, Altius Boulder Station. First Ascent Rock Climbing Club. Published several books on rock climbing, mountaineering and nature. Member of the team writing the lesson plan for the instructor guide in the sport climbing discipline of the Iranian Mountaineering Federation. Researched and published articles in the fields of rock climbing, canyoning and mountaineering.",
+        "Technical route-setting of bigwall climbing and sports climbing routes on the walls of Iran and Gilan, preparation and arrangement of the contours (map-line) of the walls in Gilan, and 4-season bigwall and mountain climbs to various peaks and walls, has an active presence.",
+        "His career includes the head of the Gilan Province Sports Climbing Committee and the head of the Talent Search Committee of the Center (Rasht).",
+        "Obtaining instructor and coaching certificates in rock climbing, mountaineering, exercise design science, bodybuilding, functional bodybuilding, TRX, and cycle spinning. Ice climbing, dry tooling referee and route setter, mountain running (sky running) referee and route setter are seen.",
+        "Some of his efforts include: Ascending 10 summits with heights over 4,000 meters in Alam-Kuh and Takht-e-Suleyman (the most technical climbing region in Iran), successful winter ascents to the summits of Damavand, Sabalan and Alam-Kuh (the highest summits of the country), opening Guilanian Route on Bistoun Kermanshah, winter ascent of the Bisotun Wall from the Eagles' route and a complete winter ascent of the Bisotun Peak's access — HEADLINE route (the highest wall in Iran), ascending both Hari Rost and Kermanshahiha on Alamkuh bigwall in 16 hours and 10 routes on Bistoun wall in 3 days, opening and rebolting more than 50 climbing routes in Iran, member of Guilan’s expedition selection committee, instructor of Guilan’s rock climbing team, winter expeditions to 7 summits in Alamkuh area in two days. Coach of the mountaineering and bigwall climbing selection tests in Gilan Province, coach of the Gilan Province rock climbing team.",
       ],
     },
     clubs: {

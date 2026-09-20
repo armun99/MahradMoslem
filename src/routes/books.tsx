@@ -7,10 +7,10 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/books")({
   head: () =>
     pageHead({
-      title: `کتاب‌های سنگنوردی و کوهنوردی | مهراد مسلم`,
-      description: "کتاب‌ها و نوشتار مهراد مسلم درباره سنگنوردی، کوهنوردی و طبیعت.",
+      title: `Rock Climbing & Mountaineering Books | Mahrad Moslem`,
+      description: "Books and writing by Mahrad Moslem on rock climbing, mountaineering, and nature.",
       path: "/books",
-      keywords: "کتاب سنگنوردی, کتاب کوهنوردی, مهراد مسلم",
+      keywords: "rock climbing books, mountaineering books, Mahrad Moslem",
     }),
   component: BooksPage,
 });

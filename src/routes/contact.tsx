@@ -7,12 +7,12 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageHead({
-      title: `تماس با مربی سنگنوردی رشت | مهراد مسلم`,
+      title: `Contact Rock Climbing Coach in Rasht | Mahrad Moslem`,
       description:
-        "ارتباط با مهراد مسلم، مربی سنگنوردی رشت و گیلان از طریق ایمیل، واتساپ، تلگرام و اینستاگرام.",
+        "Contact Mahrad Moslem, rock climbing coach in Rasht and Gilan, via email, WhatsApp, Telegram, and Instagram.",
       path: "/contact",
       image: "https://mahrad-moslem.vercel.app/contactme-flip.jpg",
-      keywords: "تماس مربی سنگنوردی رشت, آموزش سنگنوردی گیلان",
+      keywords: "contact rock climbing coach Rasht, climbing training Gilan",
     }),
   component: ContactPage,
 });

@@ -37,11 +37,11 @@ const sectionBackgrounds: Record<string, string> = {
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead({
-      title: content.fa.meta.title,
-      description: content.fa.meta.description,
+      title: content.en.meta.title,
+      description: content.en.meta.description,
       path: "/",
       keywords:
-        "سنگنوردی رشت, مربی سنگنوردی رشت, سنگنوردی گیلان, آموزش سنگنوردی رشت, کوهنوردی گیلان, بولدرینگ رشت, مهراد مسلم",
+        "rock climbing Rasht, rock climbing coach Rasht, Gilan climbing, mountaineering Gilan, bouldering Rasht, Mahrad Moslem",
     }),
   component: HomePage,
 });

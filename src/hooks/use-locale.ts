@@ -3,7 +3,7 @@ import { type Locale } from "@/content/portfolio";
 
 const STORAGE_KEY = "portfolio-locale";
 
-export function useLocale(defaultLocale: Locale = "fa") {
+export function useLocale(defaultLocale: Locale = "en") {
   const [locale, setLocaleState] = useState<Locale>(() => {
     if (typeof window === "undefined") return defaultLocale;
     const stored = localStorage.getItem(STORAGE_KEY);

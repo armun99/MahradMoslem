@@ -7,11 +7,11 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/routes-line-map")({
   head: () =>
     pageHead({
-      title: `کروکی مسیرهای سنگنوردی گیلان | مهراد مسلم`,
+      title: `Gilan Rock Climbing Route Line Maps | Mahrad Moslem`,
       description:
-        "کروکی و نقشه خطوط مسیرهای دیواره‌های گیلان و ایران که مهراد مسلم باز کرده یا ترسیم کرده است.",
+        "Line maps and route contours for walls in Gilan and Iran opened or drawn by Mahrad Moslem.",
       path: "/routes-line-map",
-      keywords: "کروکی سنگنوردی گیلان, مسیر سنگنوردی, دیواره گیلان, مهراد مسلم",
+      keywords: "Gilan climbing topo, route line map, Mahrad Moslem",
     }),
   component: RoutesLineMapPage,
 });
