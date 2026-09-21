@@ -6,6 +6,7 @@ import {
   Image,
   Mail,
   Route as RouteIcon,
+  Target,
   User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ const sectionIcons: Record<string, typeof User> = {
   "/gallery": Image,
   "/contact": Mail,
   "/training-courses": GraduationCap,
+  "/talent-training-design": Target,
 };
 
 const sectionBackgrounds: Record<string, string> = {
@@ -30,8 +32,9 @@ const sectionBackgrounds: Record<string, string> = {
   "/books": `/books/${encodeURIComponent("کتاب سنگ نگاره.jpg")}`,
   "/routes-line-map": `/routes/${encodeURIComponent("دیواره مهستان.jpg")}`,
   "/gallery": `/gallery/${encodeURIComponent("photo_1_2026-09-05_10-59-53.jpg")}`,
-  "/contact": "/lasport.jpg",
-  "/training-courses": "/20230924_182642.jpg",
+  "/contact": "/20230924_182642.jpg",
+  "/training-courses": `/${encodeURIComponent("traning image.jpg")}`,
+  "/talent-training-design": `/talenttraining/${encodeURIComponent("IMG_9495.JPG")}`,
 };
 
 export const Route = createFileRoute("/")({

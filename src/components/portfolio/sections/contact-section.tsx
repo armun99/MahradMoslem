@@ -71,13 +71,13 @@ export function ContactSection() {
     >
       <div className="relative h-2/5 min-h-[220px] w-full overflow-hidden lg:h-full lg:w-1/2">
         <img
-          src="/contactme-flip.jpg"
+          src="/20230924_182642.jpg"
           alt=""
           width={1080}
           height={1920}
           decoding="async"
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[32%_82%]"
+          className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
         />
       </div>
 

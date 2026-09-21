@@ -4,8 +4,8 @@ export const contactInfo = {
   email: "Mahrad.moslem@gmail.com",
   phone: "+98 912 034 7365",
   phoneDigits: "989120347365",
-  telegram: "https://t.me/Mahrad13",
-  telegramHandle: "@Mahrad13",
+  telegram: "https://t.me/Mahrad_mslm",
+  telegramHandle: "@Mahrad_mslm",
   whatsapp: "https://wa.me/989120347365",
   whatsappDisplay: "+98 912 034 7365",
   instagram: "https://www.instagram.com/mahrad.mslm",
@@ -72,6 +72,16 @@ export type PortfolioContent = {
     enrollCta: string;
     items: { title: string; level: string; description: string }[];
   };
+  talentPrograms: {
+    pageTitle: string;
+    eyebrow: string;
+    title: [string, string];
+    intro: string;
+    comingSoon: string;
+    cta: string;
+    galleryHeading: string;
+    items: { title: string; role: string; description: string }[];
+  };
   gallery: {
     eyebrow: string;
     title: string;
@@ -115,7 +125,7 @@ export type PortfolioContent = {
       whatsapp: string;
       instagram: string;
       email: string;
-      youtube: string;
+      telegram: string;
     };
   };
 };
@@ -135,6 +145,7 @@ export const content: Record<Locale, PortfolioContent> = {
       { path: "/gallery", label: "گالری" },
       { path: "/contact", label: "راه‌های ارتباطی" },
       { path: "/training-courses", label: "دوره‌های تمرینی" },
+      { path: "/talent-training-design", label: "استعدادیابی، آموزش و طراحی" },
     ],
     navMoreLabel: "بیشتر",
     home: {
@@ -148,6 +159,11 @@ export const content: Record<Locale, PortfolioContent> = {
         { path: "/gallery", title: "گالری", description: "عکس‌های دیوار، کوه، سفر و مربیگری در گیلان." },
         { path: "/contact", title: "راه‌های ارتباطی", description: "تماس با مربی سنگنوردی رشت." },
         { path: "/training-courses", title: "دوره‌های تمرینی", description: "آموزش و دوره‌های سنگنوردی در رشت و گیلان." },
+        {
+          path: "/talent-training-design",
+          title: "استعدادیابی، آموزش و طراحی",
+          description: "سابقهٔ رسمی در استعدادیابی، آموزش تخصصی و طراحی تمرین و مسیر در گیلان و ایران.",
+        },
       ],
     },
     cta: {
@@ -243,22 +259,58 @@ export const content: Record<Locale, PortfolioContent> = {
         {
           title: "سنگنوردی مقدماتی",
           level: "مبتدی",
-          description: "آشنایی با تجهیزات، بندبازی، حرکت پایه و ایمنی در دیوار.",
+          description: "آشنایی با تجهیزات، حرکات پایه و مقدمات سنگنوردی.",
         },
         {
           title: "تکنیک و قدرت سنگنوردی",
           level: "متوسط",
-          description: "بهبود تکنیک، خواندن مسیر، قدرت اختصاصی و برنامه تمرین.",
+          description: "بهبود تکنیک، مسیر خوانی، افزایش قدرت اختصاصی و برنامه‌های تمرین.",
         },
         {
           title: "سنگنوردی فضای باز",
           level: "پیشرفته",
-          description: "صعود در طبیعت، سیستم‌های پیشرفته، قضاوت و مدیریت ریسک.",
+          description: "صعود در طبیعت، سیستم‌های پیشرفته، اصول حمایت در سنگنوردی و قضاوت و مدیریت ریسک.",
         },
         {
-          title: "کوهنوردی و دیوار بزرگ",
+          title: "کوهنوردی و دیواره نوردی",
           level: "تخصصی",
-          description: "آمادگی برای صعودهای کوهستانی و دیوارهای بزرگ با برنامه‌ریزی حرفه‌ای.",
+          description: "آمادگی برای صعودهای کوهستانی ودیواره نوردی با برنامه‌ریزی حرفه‌ای و آشنایی با سیستم‌های کار با طناب",
+        },
+      ],
+    },
+    talentPrograms: {
+      pageTitle: "استعدادیابی، آموزش و طراحی",
+      eyebrow: "سابقه و تجربه",
+      title: ["استعدادیابی،", "آموزش و طراحی"],
+      intro:
+        "این صفحه روایت تجربهٔ عملی است — نه فقط معرفی خدمات. سال‌ها مسئولیت رسمی در استعدادیابی، مربیگری تیم و تست‌های انتخابی، مشارکت در استاندارد آموزشی فدراسیون، و طراحی فنی تمرین و مسیر روی دیواره‌های ایران و گیلان.",
+      comingSoon: "محتوای این بخش به‌زودی تکمیل می‌شود.",
+      cta: "گفت‌وگو دربارهٔ تجربه و همکاری",
+      galleryHeading: "از میدان عمل",
+      items: [
+        {
+          title: "استعدادیابی",
+          role: "ریاست کمیتهٔ استعدادیابی مرکز (رشت)",
+          description:
+            "هدایت فرآیند شناسایی و ارزیابی استعدادهای سنگنوردی در سطح مرکز و استان؛ طراحی نگاه فنی برای سنجش آمادگی، پتانسیل پیشرفت، و انتخاب مسیر مناسب هر سنگنورد. این تجربه در کنار مربیگری تست‌های انتخابی کوهنوردی و دیواره‌نوردی استان گیلان شکل گرفته است.",
+        },
+        {
+          title: "آموزش و مربیگری",
+          role: "مربی تیم سنگنوردی استان گیلان",
+          description:
+            "آموزش و آماده‌سازی سنگنوردان در سطح استانی — از تکنیک و آمادگی تا حضور در تست‌های انتخابی. عضو تیم تألیف طرح درس مربی راهنمای رشتهٔ صعودهای ورزشی فدراسیون کوهنوردی ایران؛ تجربهٔ انتقال دانش هم در میدان و هم در ساختار آموزشی رسمی.",
+        },
+        {
+          title: "طراحی تمرین",
+          role: "مدارک طراحی تمرین، بدنسازی و فانکشنال",
+          description:
+            "طراحی برنامه‌های تمرینی بر پایهٔ علم طراحی تمرین، بدنسازی و بدنسازی فانکشنال — با سابقهٔ کار عملی روی آمادگی اختصاصی سنگنوردی، پیشگیری از آسیب، و برنامه‌ریزی بلندمدت برای پیشرفت واقعی، نه تمرین پراکنده.",
+        },
+        {
+          title: "طراحی مسیر و کروکی",
+          role: "گشایش و ترمیم بیش از ۱۰۰ مسیر در ایران و گیلان",
+          description:
+            "طراحی فنی و گشایش مسیرهای اسپرت و دیواره‌نوردی، تهیه و تنظیم کروکی دیواره‌های گیلان، و ترمیم مسیرهای موجود. این کارنامه شامل دیواره‌های استان و مسیرهایی مانند گشایش مسیر گیلانی‌ها بر بیستون است — تجربهٔ میدانی که روی سنگ ساخته شده، نه فقط روی کاغذ.",
         },
       ],
     },
@@ -295,7 +347,7 @@ export const content: Record<Locale, PortfolioContent> = {
         whatsapp: "واتساپ",
         instagram: "اینستاگرام",
         email: "ایمیل",
-        youtube: "یوتیوب",
+        telegram: "تلگرام",
       },
     },
   },
@@ -313,6 +365,7 @@ export const content: Record<Locale, PortfolioContent> = {
       { path: "/gallery", label: "Gallery" },
       { path: "/contact", label: "Contact Us" },
       { path: "/training-courses", label: "Training Courses" },
+      { path: "/talent-training-design", label: "Talent, Training & Design" },
     ],
     navMoreLabel: "More",
     home: {
@@ -326,6 +379,11 @@ export const content: Record<Locale, PortfolioContent> = {
         { path: "/gallery", title: "Gallery", description: "Photos from the wall, mountains, and coaching in Gilan." },
         { path: "/contact", title: "Contact Us", description: "Contact a rock climbing coach in Rasht." },
         { path: "/training-courses", title: "Training Courses", description: "Rock climbing training courses in Rasht and Gilan." },
+        {
+          path: "/talent-training-design",
+          title: "Talent, Training & Design",
+          description: "Proven experience in talent ID, specialist coaching, and training & route design in Gilan and Iran.",
+        },
       ],
     },
     cta: {
@@ -420,22 +478,60 @@ export const content: Record<Locale, PortfolioContent> = {
         {
           title: "Intro to Rock Climbing",
           level: "Beginner",
-          description: "Gear, belaying, fundamental movement, and wall safety.",
+          description: "Gear, basic movement, and the fundamentals of rock climbing.",
         },
         {
           title: "Climbing Technique & Strength",
           level: "Intermediate",
-          description: "Better movement, route reading, climbing-specific strength, and training plans.",
+          description: "Better technique, route reading, building climbing-specific strength, and training plans.",
         },
         {
           title: "Outdoor Sport Climbing",
           level: "Advanced",
-          description: "Real rock ascents, advanced systems, judgment, and risk management.",
+          description:
+            "Outdoor ascents, advanced systems, belaying principles in rock climbing, judgment, and risk management.",
         },
         {
-          title: "Mountaineering & Big Wall",
+          title: "Mountaineering & Bigwall Climbing",
           level: "Specialist",
-          description: "Preparation for alpine objectives and big walls with professional planning.",
+          description:
+            "Preparation for mountain and bigwall climbs with professional planning and familiarity with rope-work systems.",
+        },
+      ],
+    },
+    talentPrograms: {
+      pageTitle: "Talent, Training & Design",
+      eyebrow: "Track record",
+      title: ["Talent,", "Training & Design"],
+      intro:
+        "This page is about proven experience — not a brochure. Years of official responsibility in talent identification, provincial team and selection-test coaching, federation instructor curriculum work, and technical design of training and routes across Iran and Gilan.",
+      comingSoon: "Content for this section will be added soon.",
+      cta: "Talk about experience & collaboration",
+      galleryHeading: "From the field",
+      items: [
+        {
+          title: "Talent identification",
+          role: "Head of the Talent Search Committee — Rasht Center",
+          description:
+            "Led talent identification and assessment for climbers at city and provincial level — building a technical approach to readiness, potential, and the right development path. Reinforced by coaching Gilan’s mountaineering and bigwall selection tests.",
+        },
+        {
+          title: "Coaching & education",
+          role: "Coach of the Gilan Province rock climbing team",
+          description:
+            "Trained and prepared climbers at provincial level — from movement and conditioning to selection-test readiness. Member of the team writing the instructor lesson plan for sport climbing at the Iranian Mountaineering Federation: experience both in the field and in formal coaching standards.",
+        },
+        {
+          title: "Training design",
+          role: "Credentials in exercise design, bodybuilding & functional training",
+          description:
+            "Built training plans from exercise-design science, strength conditioning, and functional training — with a track record of climbing-specific preparation, injury prevention, and long-term programming for real progress, not scattered workouts.",
+        },
+        {
+          title: "Route & topo design",
+          role: "Opened or restored 100+ routes in Iran and Gilan",
+          description:
+            "Technical design and first ascents of sport and bigwall routes, line maps for Gilan walls, and restoration of existing lines — including work such as the Guilanian Route on Bisotun. Experience made on rock, not only on paper.",
         },
       ],
     },
@@ -466,13 +562,13 @@ export const content: Record<Locale, PortfolioContent> = {
     },
     contact: {
       eyebrow: "",
-      title: "Get in Touch",
+      title: "Contact Us",
       intro: "",
       channels: {
-        telegram: "Telegram",
         whatsapp: "WhatsApp",
         instagram: "Instagram",
         email: "Email",
+        telegram: "Telegram",
       },
     },
   },

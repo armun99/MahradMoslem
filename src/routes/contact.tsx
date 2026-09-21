@@ -11,7 +11,7 @@ export const Route = createFileRoute("/contact")({
       description:
         "Contact Mahrad Moslem, rock climbing coach in Rasht and Gilan, via email, WhatsApp, Telegram, and Instagram.",
       path: "/contact",
-      image: "https://mahrad-moslem.vercel.app/contactme-flip.jpg",
+      image: "https://mahrad-moslem.vercel.app/20230924_182642.jpg",
       keywords: "contact rock climbing coach Rasht, climbing training Gilan",
     }),
   component: ContactPage,

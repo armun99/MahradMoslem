@@ -18,6 +18,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExpeditionsRouteImport } from './routes/expeditions'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as RoutesLineMapRouteImport } from './routes/routes-line-map'
+import { Route as TalentTrainingDesignRouteImport } from './routes/talent-training-design'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TrainingCoursesRouteImport } from './routes/training-courses'
 
@@ -66,6 +67,11 @@ const RoutesLineMapRoute = RoutesLineMapRouteImport.update({
   path: '/routes-line-map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TalentTrainingDesignRoute = TalentTrainingDesignRouteImport.update({
+  id: '/talent-training-design',
+  path: '/talent-training-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/expeditions': typeof ExpeditionsRoute
   '/gallery': typeof GalleryRoute
   '/routes-line-map': typeof RoutesLineMapRoute
+  '/talent-training-design': typeof TalentTrainingDesignRoute
   '/testimonials': typeof TestimonialsRoute
   '/training-courses': typeof TrainingCoursesRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/expeditions': typeof ExpeditionsRoute
   '/gallery': typeof GalleryRoute
   '/routes-line-map': typeof RoutesLineMapRoute
+  '/talent-training-design': typeof TalentTrainingDesignRoute
   '/testimonials': typeof TestimonialsRoute
   '/training-courses': typeof TrainingCoursesRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/expeditions': typeof ExpeditionsRoute
   '/gallery': typeof GalleryRoute
   '/routes-line-map': typeof RoutesLineMapRoute
+  '/talent-training-design': typeof TalentTrainingDesignRoute
   '/testimonials': typeof TestimonialsRoute
   '/training-courses': typeof TrainingCoursesRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/expeditions'
     | '/gallery'
     | '/routes-line-map'
+    | '/talent-training-design'
     | '/testimonials'
     | '/training-courses'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/expeditions'
     | '/gallery'
     | '/routes-line-map'
+    | '/talent-training-design'
     | '/testimonials'
     | '/training-courses'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/expeditions'
     | '/gallery'
     | '/routes-line-map'
+    | '/talent-training-design'
     | '/testimonials'
     | '/training-courses'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   ExpeditionsRoute: typeof ExpeditionsRoute
   GalleryRoute: typeof GalleryRoute
   RoutesLineMapRoute: typeof RoutesLineMapRoute
+  TalentTrainingDesignRoute: typeof TalentTrainingDesignRoute
   TestimonialsRoute: typeof TestimonialsRoute
   TrainingCoursesRoute: typeof TrainingCoursesRoute
 }
@@ -238,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoutesLineMapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/talent-training-design': {
+      id: '/talent-training-design'
+      path: '/talent-training-design'
+      fullPath: '/talent-training-design'
+      preLoaderRoute: typeof TalentTrainingDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExpeditionsRoute: ExpeditionsRoute,
   GalleryRoute: GalleryRoute,
   RoutesLineMapRoute: RoutesLineMapRoute,
+  TalentTrainingDesignRoute: TalentTrainingDesignRoute,
   TestimonialsRoute: TestimonialsRoute,
   TrainingCoursesRoute: TrainingCoursesRoute,
 }

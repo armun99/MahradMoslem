@@ -11,6 +11,7 @@ export const Route = createFileRoute("/training-courses")({
       description:
         "Rock climbing and mountaineering training courses in Rasht and Gilan with Mahrad Moslem — from beginner to advanced.",
       path: "/training-courses",
+      image: "https://mahrad-moslem.vercel.app/traning%20image.jpg",
       keywords: "rock climbing course Rasht, climbing training Rasht, Gilan climbing class",
     }),
   component: TrainingCoursesPage,

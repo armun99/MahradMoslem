@@ -86,6 +86,12 @@ export const routeWalls: RouteWall[] = [
     images: [{ file: "دیواره شیرین دشت.jpg", caption: { fa: "نقشه خطوط", en: "Line map" } }],
   },
   {
+    id: "universe",
+    name: { fa: "سایت یونیورس", en: "Universe Site" },
+
+    images: [{ file: "سایت یونیورس.jpg", caption: { fa: "نقشه خطوط — سه زون", en: "Line map — three zones" } }],
+  },
+  {
     id: "ali-abad",
     name: { fa: "دیواره علی‌آباد", en: "Ali Abad Wall" },
     images: [{ file: "دیواره ی علی آباد.jpg", caption: { fa: "نقشه خطوط", en: "Line map" } }],

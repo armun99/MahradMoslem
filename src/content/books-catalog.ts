@@ -14,11 +14,11 @@ export const bookCatalog: BookEntry[] = [
     cover: "کتاب سنگ نگاره.jpg",
     title: { fa: "سنگ‌نگاره", en: "Sang Negareh" },
     description: {
-      fa: "کتابی درباره سنگنوردی و ارتباط سنگنورد با طبیعت و سنگ.",
-      en: "A book on rock climbing and the climber's relationship with rock and nature.",
+      fa: "اطلس جغرافیای گیلان و مسیرهای سنگنوردی آن",
+      en: "Atlas of Gilan geography and the rock climbing routes",
     },
     topics: {
-      fa: ["سنگنوردی", "طبیعت", "فرهنگ"],
+      fa: ["سنگنوردی", "جغرافیا", "گیلان"],
       en: ["Rock climbing", "Nature", "Culture"],
     },
   },
@@ -27,12 +27,12 @@ export const bookCatalog: BookEntry[] = [
     cover: "کتاب صعود ورزشی.jpg",
     title: { fa: "صعود ورزشی", en: "Sport Ascent" },
     description: {
-      fa: "راهنمای فنی و آموزشی برای سنگنوردان ورزشی.",
-      en: "A technical and training guide for sport climbers.",
+      fa: "طرح درس مربی راهنما صعودهای ورزشی",
+      en: "A training plan for sport climbing instructors.",
     },
     topics: {
-      fa: ["سنگنوردی ورزشی", "تکنیک", "تمرین"],
-      en: ["Sport climbing", "Technique", "Training"],
+      fa: ["صعود ورزشی", "مربی", "درسنامه"],
+      en: ["Sport climbing", "Instructor", "Lesson"],
     },
   },
   {
@@ -40,12 +40,12 @@ export const bookCatalog: BookEntry[] = [
     cover: "کتاب ماسوله.jpg",
     title: { fa: "ماسوله", en: "Masuleh" },
     description: {
-      fa: "روایت صعود و سنگنوردی در منطقه ماسوله.",
-      en: "Stories of climbing and ascents in the Masuleh region.",
+      fa: "اطلس کوه‌های ماسوله و سایت‌های سنگنوردی آن",
+      en: "Atlas of Masuleh mountains and the rock climbing routes",
     },
     topics: {
-      fa: ["ماسوله", "سفر", "سنگنوردی"],
-      en: ["Masuleh", "Expeditions", "Climbing"],
+      fa: ["ماسوله", "جغرافیا", "گیلان"],
+      en: ["Masuleh", "Geography", "Gilan"],
     },
   },
 ];
