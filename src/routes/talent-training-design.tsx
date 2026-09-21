@@ -11,7 +11,7 @@ export const Route = createFileRoute("/talent-training-design")({
       title: `${content.en.talentPrograms.pageTitle} | Mahrad Moslem`,
       description: content.en.talentPrograms.intro,
       path: "/talent-training-design",
-      image: `https://mahrad-moslem.vercel.app/talenttraining/${encodeURIComponent("IMG_9495.JPG")}`,
+      image: `https://mahrad-moslem.vercel.app/talenttraining/${encodeURIComponent("main.JPG")}`,
       keywords:
         "climbing talent identification, rock climbing training design, coach Rasht, Mahrad Moslem, استعدادیابی سنگنوردی",
     }),

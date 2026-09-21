@@ -21,8 +21,8 @@ export const talentTrainingPhotos: string[] = [
   "SHZH9532.JPG",
 ];
 
-/** Strong wide shot for page banner + home card */
-export const talentTrainingHero = "IMG_9495.JPG";
+/** Classroom / coaching session — page banner + home card */
+export const talentTrainingHero = "main.JPG";
 
 export function talentTrainingSrc(file: string) {
   return `/talenttraining/${encodeURIComponent(file)}`;

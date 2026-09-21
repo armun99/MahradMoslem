@@ -34,7 +34,7 @@ const sectionBackgrounds: Record<string, string> = {
   "/gallery": `/gallery/${encodeURIComponent("photo_1_2026-09-05_10-59-53.jpg")}`,
   "/contact": "/20230924_182642.jpg",
   "/training-courses": `/${encodeURIComponent("traning image.jpg")}`,
-  "/talent-training-design": `/talenttraining/${encodeURIComponent("IMG_9495.JPG")}`,
+  "/talent-training-design": `/talenttraining/${encodeURIComponent("main.JPG")}`,
 };
 
 export const Route = createFileRoute("/")({
