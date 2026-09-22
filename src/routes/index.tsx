@@ -31,7 +31,7 @@ const sectionBackgrounds: Record<string, string> = {
   "/about": "/bio1.jpg",
   "/books": `/books/${encodeURIComponent("کتاب سنگ نگاره.jpg")}`,
   "/routes-line-map": `/routes/${encodeURIComponent("دیواره مهستان.jpg")}`,
-  "/gallery": `/gallery/${encodeURIComponent("photo_1_2026-09-05_10-59-53.jpg")}`,
+  "/gallery": `/gallery/${encodeURIComponent("DSC02198.JPG")}`,
   "/contact": "/20230924_182642.jpg",
   "/training-courses": `/${encodeURIComponent("traning image.jpg")}`,
   "/talent-training-design": `/talenttraining/${encodeURIComponent("main.JPG")}`,

@@ -69,7 +69,7 @@ export function ContactSection() {
       className="flex h-[calc(100dvh-4rem)] flex-col overflow-hidden lg:h-[calc(100dvh-4.75rem)] lg:flex-row"
       dir="ltr"
     >
-      <div className="relative h-2/5 min-h-[220px] w-full overflow-hidden lg:h-full lg:w-1/2">
+      <div className="relative h-2/5 min-h-[280px] w-full overflow-hidden bg-[#0b1a24] lg:h-full lg:w-1/2">
         <img
           src="/20230924_182642.jpg"
           alt=""
@@ -77,7 +77,7 @@ export function ContactSection() {
           height={1920}
           decoding="async"
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[center_28%]"
+          className="absolute inset-0 h-full w-full object-cover object-[20%_70%]"
         />
       </div>
 
