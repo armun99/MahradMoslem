@@ -1,12 +1,23 @@
 /** Photos in public/talenttraining — experience in talent ID, training & design */
 export const talentTrainingPhotos: string[] = [
+  // Newest additions (shown first)
+  "photo_2026-10-18_11-33-34.jpg",
+  "photo_2026-10-18_11-33-31.jpg",
+  "photo_2026-10-18_11-33-26.jpg",
+  "photo_2026-10-18_11-33-21.jpg",
+  "photo_2026-10-18_11-33-18.jpg",
+  "photo_2026-10-18_11-33-15.jpg",
+  "photo_2026-10-18_11-33-11.jpg",
+  "photo_2026-10-18_11-33-07.jpg",
+  "photo_2026-10-18_11-33-02.jpg",
+  "photo_2026-10-18_11-32-38.jpg",
+  // Existing set
   "IMG_9495.JPG",
   "IMG_9480.JPG",
   "IMG_9481.JPG",
   "IMG_9501.JPG",
   "IMG_3549.JPG",
   "IMG_5188.JPG",
-  "IMG_5189.JPG",
   "BDNZ1000.JPG",
   "CPFN1691.JPG",
   "GNWH7654.JPG",
