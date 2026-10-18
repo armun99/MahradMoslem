@@ -123,6 +123,10 @@ export function TalentProgramsSection() {
                 decoding="async"
                 alt=""
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  const btn = e.currentTarget.closest("button");
+                  if (btn instanceof HTMLElement) btn.hidden = true;
+                }}
               />
               <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
             </button>
