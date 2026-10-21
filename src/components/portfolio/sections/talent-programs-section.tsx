@@ -103,7 +103,9 @@ export function TalentProgramsSection() {
       )}
 
       <div className="mt-16">
-        <p className={cn("mb-5 text-sm font-medium text-primary", !isRtl && "eyebrow")}>{page.galleryHeading}</p>
+        {page.galleryHeading ? (
+          <p className={cn("mb-5 text-sm font-medium text-primary", !isRtl && "eyebrow")}>{page.galleryHeading}</p>
+        ) : null}
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {talentTrainingPhotos.map((file, index) => (
             <button
@@ -145,7 +147,7 @@ export function TalentProgramsSection() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4"
           role="dialog"
           aria-modal="true"
-          aria-label={page.galleryHeading}
+          aria-label={page.galleryHeading || page.pageTitle}
           onClick={() => setLightbox(null)}
         >
           <Button
