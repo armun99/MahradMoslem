@@ -2,7 +2,7 @@
 export const talentTrainingPhotos: string[] = [
   // Newest additions (shown first)
   "photo_2026-10-18_11-33-34.jpg",
-  "photo_2026-10-18_11-33-31.jpg",
+  "photo_2026-10-21_14-50-462110.jpg",
   "photo_2026-10-18_11-33-26.jpg",
   "photo_2026-10-18_11-33-21.jpg",
   "photo_2026-10-18_11-33-18.jpg",
